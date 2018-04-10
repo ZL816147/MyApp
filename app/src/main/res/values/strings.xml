@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">政处手持终端</string>
+    <string name="exit">再按一次退出程序</string>
+    <string name="create_address_format"><Data><![CDATA[<font color="#666666">地点：</font><font color="#FF4400">%s</font>]]></Data></string>
+    <string name="create_date_format"><Data><![CDATA[<font color="#666666">制单日：</font><font color="#FF4400">%s</font>]]></Data></string>
+    <string name="compensate_state_format"><Data><![CDATA[<font color="#666666">赔付情况：</font><font color="#FF4400">%s</font>]]></Data></string>
+    <string name="other"><Data>其他：\n经项目管理单位、施工方单位、涉赔人员协商确定一次性补偿人民币合计：(    )元， 金额(大写自动生成)</Data></string>
+    <string name="error">加载出错啦，点击屏幕重试吧</string>
+    <string name="location_error">定位失败啦，请检查定位权限或者点击屏幕重试吧</string>
+    <string name="wind_power">风力</string>
+    <string name="weather_condition">天气情况</string>
+    <string name="temperature">体感温度</string>
+    <string name="loading_error">加载出错了...</string>
+    <string name="home_tab_recomment">首页</string>
+    <string name="home_tab_notice">记录</string>
+
+    <string name="people_format"><Data><![CDATA[<font color="#333333">涉赔人：</font><font color="#666666">%s</font>]]></Data></string>
+    <string name="date_format"><Data><![CDATA[<font color="#333333">日期：</font><font color="#666666">%s</font>]]></Data></string>
+    <string name="tips_pull_refresh">下拉可以刷新</string>
+    <string name="tips_last_update">上次更新</string>
+    <string name="load_more">查看更多</string>
+    <string name="loading">加载中...</string>
+    <string name="refresh_loading">正在更新...</string>
+    <string name="refresh_release_to_update">释放立即更新</string>
+    <string name="refresh_pull">下拉刷新</string>
+    <string name="no_more_data">没有数据啦</string>
+    <!-- 一些提示 -->
+    <string name="not_updated_yet">暂未更新过</string>
+    <string name="updated_at">上次更新于%1$s前</string>
+    <string name="updated_just_now">刚刚更新</string>
+    <string name="time_error">时间有误</string>
+    <string name="no_data">暂无数据</string>
+    <string name="toast_back">再点一次返回桌面</string>
+    <string name="unit_month">个月</string>
+    <string name="year">年</string>
+    <string name="day">天</string>
+    <string name="hour">小时</string>
+    <string name="minute">分钟</string>
+</resources>

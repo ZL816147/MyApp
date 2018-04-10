@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pop_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_sign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/cancel_sure_rl"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_above="@+id/sep_ll"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="#E6F5FA"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cancel_tv"
+                style="@style/textviewStyle"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="取消"
+                android:textColor="@drawable/selector_font_click_cannel" />
+
+            <TextView
+                android:id="@+id/confirm_tv"
+                style="@style/textviewStyle"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="保存"
+                android:textColor="@drawable/selector_font_click" />
+        </RelativeLayout>
+
+        <com.venusic.handwrite.view.HandWriteView
+            android:id="@+id/sfv_sign"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            app:paintColor="#FF0000"
+            app:paintMaxWidth="10dp"
+            app:paintMinWidth="2dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/app_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_take_photo"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@drawable/selector_listview_noline_item"
+            android:gravity="center"
+            android:text="拍摄"
+            android:textColor="@drawable/select_tab_font_click"
+            android:textSize="@dimen/bigSize" />
+
+
+        <View style="@style/separatorLine" />
+
+        <TextView
+            android:id="@+id/tv_select_photo"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@drawable/selector_listview_noline_item"
+            android:gravity="center"
+            android:text="从手机相册选择"
+            android:textColor="@drawable/select_tab_font_click"
+            android:textSize="@dimen/bigSize" />
+
+        <View style="@style/separatorLine" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/selector_listview_noline_item"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@drawable/select_tab_font_click"
+            android:textSize="@dimen/bigSize" />
+    </LinearLayout>
+
+</LinearLayout>

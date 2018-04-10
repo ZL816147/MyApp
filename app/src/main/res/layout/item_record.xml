@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:background="@color/black"
+    android:minHeight="50dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_margin="0.5dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="序号"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normalSize" />
+
+    <TextView
+        android:id="@+id/tv_power_name"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0.5dp"
+        android:layout_marginRight="0.5dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="XX供电所"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normalSize" />
+
+    <TextView
+        android:id="@+id/tv_project_name"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0.5dp"
+        android:layout_marginRight="0.5dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="XX台片"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normalSize" />
+
+    <EditText
+        android:id="@+id/tv_involved_sign"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0.5dp"
+        android:layout_marginRight="0.5dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="姓名"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normalSize" />
+
+    <TextView
+        android:id="@+id/tv_marketing_no"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0.5dp"
+        android:layout_marginRight="0.5dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="营销户号"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normalSize" />
+
+    <TextView
+        android:id="@+id/tv_money_total"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0.5dp"
+        android:layout_marginRight="0.5dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="金额"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normalSize" />
+
+    <TextView
+        android:id="@+id/tv_bank_number"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0.5dp"
+        android:layout_marginRight="0.5dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="卡片(与姓名身份证一致)"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normalSize" />
+
+    <TextView
+        android:id="@+id/tv_open_bank"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0.5dp"
+        android:layout_marginRight="0.5dp"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="开户行"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normalSize" />
+</LinearLayout>

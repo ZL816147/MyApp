@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="supply_power">
+        <item>角斜供电所</item>
+        <item>李堡供电所</item>
+        <item>西场供电所</item>
+        <item>大公供电所</item>
+        <item>城东供电所</item>
+        <item>海安供电所</item>
+        <item>墩头供电所</item>
+        <item>南莫供电所</item>
+        <item>白甸供电所</item>
+        <item>孙庄供电所</item>
+        <item>雅周供电所</item>
+        <item>胡集供电所</item>
+        <item>曲塘供电所</item>
+        <item>其他(手工录入)</item>
+    </string-array>
+    <string-array name="destroy_goods">
+        <item>粮食作物</item>
+        <item>经济型作物</item>
+        <item>普通树木</item>
+        <item>果树</item>
+        <item>土地</item>
+        <item>水泥地</item>
+        <item>建筑物</item>
+        <item>其他(手工录入)</item>
+    </string-array>
+    <string-array name="goods_unit">
+        <item>平方米</item>
+        <item>棵</item>
+        <item>个</item>
+        <item>处</item>
+        <item>千克</item>
+        <item>立方米</item>
+        <item>其他(手工录入)</item>
+    </string-array>
+</resources>

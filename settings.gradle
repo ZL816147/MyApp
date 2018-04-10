@@ -1,0 +1,1 @@
+include ':app', ':speechDemo', ':ocr_ui', ':SignaturePad-Library'

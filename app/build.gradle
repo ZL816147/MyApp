@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'protocol123'
+            keyPassword 'protocol123'
+            storeFile file('protocol123.jks')
+            storePassword 'protocol123'
+        }
+    }
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.create.protocol"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
+        manifestPlaceholders = [qqappid: " "]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.config
+            zipAlignEnabled true
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:design:26.1.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    //权限控制
+    compile 'com.yanzhenjie:permission:1.0.7'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //底部导航
+//    compile 'com.aurelhubert:ahbottomnavigation:2.0.6'
+    //    compile 'com.amap.api:3dmap:latest.integration'
+    //    compile 'com.amap.api:map2d:latest.integration'
+    //    compile 'com.amap.api:navi-3dmap:latest.integration'
+    //    compile 'com.amap.api:search:latest.integration'
+    compile 'com.amap.api:location:latest.integration'
+    compile files('libs/Msc.jar')
+    compile files('libs/Sunflower.jar')
+    compile files('libs/ocr-sdk.jar')
+    compile files('libs/poi-3.9-20121203.jar')
+    compile files('libs/poi-scratchpad-3.9-20121203.jar')
+    implementation project(':ocr_ui')
+    compile 'com.yalantis:ucrop:2.2.0'
+    compile 'org.litepal.android:core:1.6.1'
+    compile 'com.github.venusic:E-signature:0.2'
+//    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+//    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    compile 'io.reactivex:rxjava:1.1.5'
+    compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.0.0-beta4'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'org.jsoup:jsoup:1.8.3'
+    compile 'com.jude:easyrecyclerview:3.5.7'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+//    compile 'com.itextpdf:itextpdf:5.5.10'
+    compile 'com.itextpdf:itextg:5.5.10'
+    compile 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+//    compile 'com.umeng.sdk:share-core:latest.integration'
+//    compile 'com.umeng.sdk:share-qq:latest.integration'
+//    compile 'com.umeng.sdk:share-wechat:latest.integration'
+//    compile 'com.umeng.sdk:share-sina:latest.integration'
+}
