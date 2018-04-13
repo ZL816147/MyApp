@@ -230,7 +230,6 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
     // 系统图库
     private static String cameraPath = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_DCIM + File.separator + "Camera" + File.separator;
     //    private static final String imagePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
-    //
     // 签名
     public String signPath = "";
     //    public static String signPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
