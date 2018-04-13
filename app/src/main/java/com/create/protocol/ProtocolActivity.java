@@ -122,6 +122,14 @@ public class ProtocolActivity extends BaseActivity implements OnLoadCompleteList
                 String fileName = str + "_" + "政策处理明细单" + ".jpg";
                 File file = new File(imagePath, fileName);
                 try {
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    file.createNewFile();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                try {
                     FileOutputStream fos = new FileOutputStream(file);
                     if (bitmap != null) {
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);

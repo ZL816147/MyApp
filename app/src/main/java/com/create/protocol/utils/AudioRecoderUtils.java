@@ -1,5 +1,6 @@
 package com.create.protocol.utils;
 
+import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Handler;
 
@@ -10,7 +11,7 @@ import java.io.IOException;
  * Created by jsntnjzb on 2018/4/8.
  */
 
-public class AudioRecoderUtils {
+public class AudioRecoderUtils{
     private String filePath;
     private MediaRecorder mMediaRecorder;
     private final String TAG = "MediaRecord";
@@ -38,8 +39,11 @@ public class AudioRecoderUtils {
     public void startRecord() {
         // 开始录音
         /* ①Initial：实例化MediaRecorder对象 */
-        if (mMediaRecorder == null)
+        if (mMediaRecorder == null) {
             mMediaRecorder = new MediaRecorder();
+        } else {
+            mMediaRecorder.reset();
+        }
         try {
             /* ②setAudioSource/setVedioSource */
             mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);// 设置麦克风
@@ -72,10 +76,14 @@ public class AudioRecoderUtils {
      * 停止录音
      */
     public long stopRecord() {
-        if (mMediaRecorder == null)
+        if (mMediaRecorder == null) {
             return 0L;
+        }
         endTime = System.currentTimeMillis();
         LogUtils.i("endTime" + endTime);
+        mMediaRecorder.setOnErrorListener(null);
+        mMediaRecorder.setOnInfoListener(null);
+        mMediaRecorder.setPreviewDisplay(null);
         mMediaRecorder.stop();
         mMediaRecorder.reset();
         mMediaRecorder.release();

@@ -31,7 +31,6 @@ import com.create.protocol.adapter.MyAdapter;
 import com.create.protocol.base.BaseFragment;
 import com.create.protocol.model.Info;
 import com.create.protocol.widget.ClearEditText;
-import com.create.protocol.widget.PullDragListView;
 
 import org.litepal.crud.DataSupport;
 
@@ -76,7 +75,6 @@ public class RecordFragment extends BaseFragment implements MyAdapter.OnShowItem
     @Override
     protected void init() {
         infoList = DataSupport.findAll(Info.class);
-        Toast.makeText(getActivity(), infoList.size() + "++++++++++++++++", Toast.LENGTH_SHORT).show();
         dataList = new ArrayList<>();
         selectList = new ArrayList<>();
         dataList.addAll(infoList);

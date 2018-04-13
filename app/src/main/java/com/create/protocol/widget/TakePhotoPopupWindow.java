@@ -44,6 +44,7 @@ public class TakePhotoPopupWindow extends PopupWindow {
     private final View cancelTv;
     private final LinearLayout llImage;
     private final LinearLayout llSign;
+    private final String signPath;
     private Bitmap mBitmap;
 
     private View view;
@@ -54,8 +55,9 @@ public class TakePhotoPopupWindow extends PopupWindow {
     private Paint mPaint = new Paint();
 
 
-    public TakePhotoPopupWindow(Context mContext, View.OnClickListener itemsOnClick, int type, final OnSignListener signListener) {
+    public TakePhotoPopupWindow(Context mContext, View.OnClickListener itemsOnClick, int type, final OnSignListener signListener, final String signPath) {
         this.signListener = signListener;
+        this.signPath = signPath;
         setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         view = LayoutInflater.from(mContext).inflate(R.layout.take_photo_pop, null);
 
@@ -101,7 +103,7 @@ public class TakePhotoPopupWindow extends PopupWindow {
                          * blank边缘  保留多少像素空白
                          * isEncrypt 是否加密存储 如果加密存储会自动在路径后面追加后缀.sign
                          */
-                        sfvSign.save(EnterActivity.signPath, true, 10, false);
+                        sfvSign.save(signPath, true, 10, false);
                         signListener.onSignSuccess(true);
                         dismiss();
                     } catch (IOException e) {

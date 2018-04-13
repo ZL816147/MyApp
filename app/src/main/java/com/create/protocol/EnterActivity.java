@@ -1,5 +1,6 @@
 package com.create.protocol;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.ContentUris;
 import android.content.Context;
@@ -185,6 +186,12 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
     Spinner spinnerUnit;
     @BindView(R.id.tv_record)
     TextView tvRecord;
+    @BindView(R.id.tv_play)
+    TextView tvPlay;
+    @BindView(R.id.iv_delete_voice)
+    ImageView ivDeleteVoice;
+    @BindView(R.id.ll_find)
+    LinearLayout llFind;
     private AMapLocationClient mLocationClient;
     private InputMethodManager mInputManager;
     private WindowManager.LayoutParams params;
@@ -218,12 +225,14 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
     private static final String templatePath = Environment.getExternalStorageDirectory() + "/protocol/template.doc";
     // 创建生成的文件地址
     private static final String newPath = Environment.getExternalStorageDirectory() + "/protocol/";
-    // 图片存储
+    // 图片或者pdf或者声音存储
     private static final String imagePath = Environment.getExternalStorageDirectory() + "/protocol/";
+    // 系统图库
+    private static String cameraPath = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_DCIM + File.separator + "Camera" + File.separator;
     //    private static final String imagePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
     //
     // 签名
-    public static String signPath = Environment.getExternalStorageDirectory().getPath() + "/sign.png";
+    public String signPath = "";
     //    public static String signPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
     //    // 模板地址
 //    private static final String templatePath = "/mnt/sdcard/protocol/template.doc";
@@ -248,7 +257,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
     private AudioRecoderDialog recoderDialog;
     private AudioRecoderUtils recoderUtils;
     private long downT;
-
+    private String pathName = "";
 
     @Override
     protected int getLayout() {
@@ -267,11 +276,10 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         String str = formatter.format(curDate);
         tvCreateDate.setText(Html.fromHtml(getString(R.string.create_date_format, str)));
         time = tvCreateDate.getText().toString().trim().replace("制单日：", "").replace("年", "").replace("月", "").replace("日", "").replace(" ", "").replace(":", "");
-        recoderUtils = new AudioRecoderUtils(new File(Environment.getExternalStorageDirectory() + "/time.amr"));
-        recoderUtils.setOnAudioStatusUpdateListener(this);
         discern();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void setListener() {
         etPowerName.setOnLongClickListener(this);
         etConstruction.setOnLongClickListener(this);
@@ -356,20 +364,39 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
             }
         });
 
+
         tvRecord.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                if (!TextUtils.isEmpty(tvCompensateState.getText().toString())) {
+                    pathName = tvCompensateState.getText().toString() + "_" + time + ".amr";
+                } else {
+                    pathName = time + ".amr";
+                }
+                File file = new File(imagePath, pathName);
+                try {
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    file.createNewFile();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                recoderUtils = new AudioRecoderUtils(file);
+                recoderUtils.setOnAudioStatusUpdateListener(EnterActivity.this);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         recoderUtils.startRecord();
                         downT = System.currentTimeMillis();
                         recoderDialog.showAtLocation(tvRecord, Gravity.CENTER, 0, 0);
-                        tvRecord.setBackgroundResource(R.drawable.shape_recoder_btn_recoding);
+                        tvRecord.setBackgroundResource(R.drawable.shape_recoder_recoding);
                         return true;
                     case MotionEvent.ACTION_UP:
                         recoderUtils.stopRecord();
                         recoderDialog.dismiss();
-                        tvRecord.setBackgroundResource(R.drawable.shape_recoder_btn_normal);
+                        tvRecord.setBackgroundResource(R.drawable.shape_recoder_normal);
+                        tvRecord.setVisibility(View.GONE);
+                        llFind.setVisibility(View.VISIBLE);
                         return true;
                 }
                 return false;
@@ -563,7 +590,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         // 保存成图片
         Bitmap protocolBitmap = loadBitmapFromView(llView);
         String protocolFile = time + "_" + "protocol" + ".jpg";
-        File file = new File(imagePath, protocolFile);
+        File file = new File(cameraPath, protocolFile);
         try {
             FileOutputStream fos = new FileOutputStream(file);
             if (protocolBitmap != null) {
@@ -614,7 +641,21 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
      * @param type
      */
     private void showSelectPopupWindow(int type) {
-        takePhotoPopupWindow = new TakePhotoPopupWindow(this, popItemListener, type, signListener);
+        if (!TextUtils.isEmpty(tvCompensateState.getText().toString())) {
+            signPath = tvCompensateState.getText().toString() + "_" + "sign" + "_" + time + ".png";
+        } else {
+            signPath = "sign" + "_" + time + ".png";
+        }
+        File file = new File(cameraPath, signPath);
+        try {
+            if (file.exists()) {
+                file.delete();
+            }
+            file.createNewFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        takePhotoPopupWindow = new TakePhotoPopupWindow(this, popItemListener, type, signListener, cameraPath + signPath);
         // 显示窗口,设置layout在PopupWindow中显示的位置
         takePhotoPopupWindow.showAtLocation(btnSave, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
         window = this.getWindow();
@@ -645,7 +686,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
             if (signed) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inSampleSize = 3;
-                Bitmap bitmap = BitmapFactory.decodeFile(EnterActivity.signPath, options);
+                Bitmap bitmap = BitmapFactory.decodeFile(cameraPath + signPath, options);
                 SpannableString spannable = new SpannableString(1 + "");
                 Drawable drawable = new BitmapDrawable(bitmap);//加载应用程序中图片
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()); //设置宽'高
@@ -700,7 +741,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
      */
     private void openCamera() {
         // 创建file对象，用于存储拍照后的图片；
-        File outputImage = new File(imagePath, time + "_" + flag + ".jpg");
+        File outputImage = new File(cameraPath, time + "_" + flag + ".jpg");
         try {
             if (outputImage.exists()) {
                 outputImage.delete();
@@ -748,7 +789,6 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         // 获取调用参数
         // 通过临时文件获取拍摄的图片
         String filePath = FileUtil.getSaveFile(this).getAbsolutePath();
-        LogUtils.e(requestCode + "++++++++++++");
         switch (requestCode) {
             case REQUEST_CODE_CAMERA:
                 // 判断是否是身份证正面
@@ -793,7 +833,6 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
                     final Uri resultUri = UCrop.getOutput(data);
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), resultUri);
-                        LogUtils.e(flag);
                         if ("identity_card".equals(flag)) {
                             ivIdentityCard.setImageBitmap(bitmap);
                             ivIdentityCardCode = encodeBitmap(bitmap);
@@ -914,9 +953,28 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         return path;
     }
 
-    @OnClick({R.id.btn_save, R.id.iv_identity_card, R.id.iv_bank_card, R.id.iv_scene1, R.id.iv_scene2, R.id.iv_scene3, R.id.iv_scene4, R.id.iv_back, R.id.tv_total, R.id.tv_add})
+    @OnClick({R.id.tv_play, R.id.iv_delete_voice, R.id.btn_save, R.id.iv_identity_card, R.id.iv_bank_card, R.id.iv_scene1, R.id.iv_scene2, R.id.iv_scene3, R.id.iv_scene4, R.id.iv_back, R.id.tv_total, R.id.tv_add})
     public void onClick(View v) {
+        File file = new File(imagePath, pathName);
         switch (v.getId()) {
+            case R.id.tv_play:
+                try {
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    file.createNewFile();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                openAssignFolder(file);
+                break;
+            case R.id.iv_delete_voice:
+                if (file.exists()) {
+                    file.delete();
+                }
+                tvRecord.setVisibility(View.VISIBLE);
+                llFind.setVisibility(View.GONE);
+                break;
             case R.id.btn_save:
 //                try {
 //                    InputStream inputStream = this.getAssets().open("template.doc");

@@ -75,7 +75,8 @@ public class DetailActivity extends BaseActivity {
     @BindView(R.id.tv_marketing_no)
     TextView tvMarketingNo;
     @BindView(R.id.tv_money_total)
-    TextView tvMoneyTotal; @BindView(R.id.tv_total)
+    TextView tvMoneyTotal;
+    @BindView(R.id.tv_total)
     TextView tvTotal;
     @BindView(R.id.tv_bank_number)
     TextView tvBankNumber;
@@ -181,6 +182,14 @@ public class DetailActivity extends BaseActivity {
                 Bitmap bitmap = loadBitmapFromView(llView);
                 String fileName = str + "_" + "政策处理明细单" + ".jpg";
                 File file = new File(imagePath, fileName);
+                try {
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    file.createNewFile();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 try {
                     FileOutputStream fos = new FileOutputStream(file);
                     if (bitmap != null) {
