@@ -1,6 +1,5 @@
 package com.create.protocol;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
@@ -119,7 +118,7 @@ public class ProtocolActivity extends BaseActivity implements OnLoadCompleteList
                 String str = formatter.format(curDate);
                 // 保存成图片
                 Bitmap bitmap = loadBitmapFromView(imView);
-                String fileName = str + "_" + "政策处理明细单" + ".jpg";
+                String fileName = str + "_" + "政策处理协议" + ".jpg";
                 File file = new File(imagePath, fileName);
                 try {
                     if (file.exists()) {

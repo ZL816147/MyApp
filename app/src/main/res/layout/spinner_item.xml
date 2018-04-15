@@ -9,4 +9,4 @@
     android:clickable="true"
     android:focusable="false"
     android:textColor="@color/black"
-    android:textSize="12sp" />
+    android:textSize="11sp" />

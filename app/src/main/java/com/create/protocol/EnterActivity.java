@@ -613,12 +613,12 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         info.setProjectCode(projectCode);
         info.setProjectName(projectName);
         info.setDescribe(t);
-        info.setIdentityCardImage(ivIdentityCardCode);
-        info.setBankCardImage(ivBankCardCode);
-        info.setSceneImage1(ivScene1Code);
-        info.setSceneImage2(ivScene2Code);
-        info.setSceneImage3(ivScene3Code);
-        info.setSceneImage4(ivScene4Code);
+//        info.setIdentityCardImage(ivIdentityCardCode);
+//        info.setBankCardImage(ivBankCardCode);
+//        info.setSceneImage1(ivScene1Code);
+//        info.setSceneImage2(ivScene2Code);
+//        info.setSceneImage3(ivScene3Code);
+//        info.setSceneImage4(ivScene4Code);
         info.setInvolvedPeople(involvedPeople);
         info.setResponsiblePeople(responsiblePeople);
         info.setOpenBank(openBank);

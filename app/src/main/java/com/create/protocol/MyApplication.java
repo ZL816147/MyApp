@@ -3,8 +3,8 @@ package com.create.protocol;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-
 
 import com.baidu.ocr.sdk.OCR;
 import com.baidu.ocr.sdk.OnResultListener;
@@ -46,6 +46,7 @@ public class MyApplication extends Application {
         super.onCreate();
         instance = this;
         context = getApplicationContext();
+
 //        UMConfigure.init(this, "5ab383cda40fa330f4000128", "umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            return;
@@ -53,6 +54,7 @@ public class MyApplication extends Application {
 //        LeakCanary.install(this);
 
         LitePal.initialize(this);
+        SQLiteDatabase db = LitePal.getDatabase();
         OCR.getInstance().initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
             @Override
             public void onResult(AccessToken result) {

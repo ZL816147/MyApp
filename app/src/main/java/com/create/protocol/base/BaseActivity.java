@@ -1,16 +1,13 @@
 package com.create.protocol.base;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.view.MenuItem;
@@ -18,7 +15,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.create.protocol.DetailActivity;
 import com.create.protocol.MyApplication;
 import com.create.protocol.R;
 import com.create.protocol.utils.PdfBackground;
@@ -164,21 +160,29 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (null == file || !file.exists()) {
             return;
         }
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.addCategory(Intent.CATEGORY_DEFAULT);
+//获取父目录
+        Intent intent = new Intent("android.intent.action.VIEW");
+        intent.addCategory("android.intent.category.DEFAULT");
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (Build.VERSION.SDK_INT >= 24) {
-            imageUri = FileProvider.getUriForFile(this, "com.create.protocol", file);
-        } else {
-            imageUri = Uri.fromFile(file);
-        }
-        intent.setDataAndType(imageUri, "file/*");
-        try {
-            startActivity(intent);
-            startActivity(Intent.createChooser(intent, "选择浏览工具"));
-        } catch (ActivityNotFoundException e) {
-            e.printStackTrace();
-        }
+        Uri uri = Uri.fromFile(file);
+        intent.setDataAndType(uri, "application/pdf");
+        startActivity(intent);
+
+//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//        intent.addCategory(Intent.CATEGORY_DEFAULT);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        if (Build.VERSION.SDK_INT >= 24) {
+//            imageUri = FileProvider.getUriForFile(this, "com.create.protocol", file);
+//        } else {
+//            imageUri = Uri.fromFile(file);
+//        }
+//        intent.setDataAndType(imageUri, "file/*");
+//        try {
+//            startActivity(intent);
+//            startActivity(Intent.createChooser(intent, "选择浏览工具"));
+//        } catch (ActivityNotFoundException e) {
+//            e.printStackTrace();
+//        }
     }
     public void sharePDF(File file) {
         Intent intent = new Intent();
