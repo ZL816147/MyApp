@@ -48,19 +48,39 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/smallSize" />
 
-                <EditText
-                    android:id="@+id/et_destroy_stuff"
+                <LinearLayout
+                    android:id="@+id/ll_destroy_stuff_add"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
-                    android:background="@color/white"
                     android:gravity="center"
-                    android:hint="输入"
-                    android:longClickable="false"
-                    android:textColor="@color/black"
-                    android:textColorHint="@android:color/holo_red_light"
-                    android:textSize="@dimen/smallSize"
-                    android:visibility="gone" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/et_destroy_stuff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:hint="输入"
+                        android:longClickable="false"
+                        android:textColor="@color/black"
+                        android:textColorHint="@android:color/holo_red_light"
+                        android:textSize="@dimen/smallSize"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:layout_marginLeft="4dp"
+                        android:id="@+id/iv_destroy_stuff_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:paddingLeft="6dp"
+                        android:paddingRight="6dp"
+                        android:src="@drawable/dynamic_help_button_drop_down" />
+
+                </LinearLayout>
 
                 <Spinner
                     android:id="@+id/spinner_destroy_stuff"
@@ -136,18 +156,40 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/smallSize" />
 
-                <EditText
-                    android:id="@+id/et_unit"
-                    android:layout_width="match_parent"
-                    android:layout_height="11dp"
-                    android:layout_marginLeft="0dp"
-                    android:background="@color/white"
+                <LinearLayout
                     android:gravity="center"
-                    android:hint="下拉"
-                    android:textColor="@color/black"
-                    android:textColorHint="@android:color/holo_red_light"
-                    android:textSize="@dimen/smallSize"
-                    android:visibility="gone" />
+                    android:id="@+id/ll_unit_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/et_unit_add"
+                        android:layout_width="match_parent"
+                        android:layout_height="11dp"
+                        android:layout_marginLeft="0dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:hint="输入"
+                        android:textColor="@color/black"
+                        android:textColorHint="@android:color/holo_red_light"
+                        android:textSize="@dimen/smallSize"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:layout_marginLeft="4dp"
+                        android:id="@+id/iv_unit_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:paddingLeft="6dp"
+                        android:paddingRight="6dp"
+                        android:src="@drawable/dynamic_help_button_drop_down" />
+
+                </LinearLayout>
+
 
                 <Spinner
                     android:id="@+id/spinner_unit"

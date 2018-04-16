@@ -42,6 +42,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -192,6 +193,18 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
     ImageView ivDeleteVoice;
     @BindView(R.id.ll_find)
     LinearLayout llFind;
+    @BindView(R.id.iv_power_name)
+    ImageView ivPowerName;
+    @BindView(R.id.rl_power_name)
+    RelativeLayout rlPowerName;
+    @BindView(R.id.iv_destroy_stuff)
+    ImageView ivDestroyStuff;
+    @BindView(R.id.ll_destroy_stuff)
+    LinearLayout llDestroyStuff;
+    @BindView(R.id.iv_unit)
+    ImageView ivUnit;
+    @BindView(R.id.ll_unit)
+    LinearLayout llUnit;
     private AMapLocationClient mLocationClient;
     private InputMethodManager mInputManager;
     private WindowManager.LayoutParams params;
@@ -200,7 +213,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
     private String site;
     private String date;
     private String status;
-    private String power;
+    private String powerName;
     private String construction;
     private String projectCode;
     private String projectName;
@@ -257,6 +270,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
     private AudioRecoderUtils recoderUtils;
     private long downT;
     private String pathName = "";
+    private boolean emptyPowerName;
 
     @Override
     protected int getLayout() {
@@ -311,6 +325,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
 
 //        btnSave.setEnabled(false);
 //        btnSave.setBackgroundResource(R.drawable.shape_next_button);
+
         adapter1 = ArrayAdapter.createFromResource(this, R.array.supply_power, R.layout.spinner_item);
         adapter1.setDropDownViewResource(R.layout.dropdown_stytle);
         spinnerPowerName.setAdapter(adapter1);
@@ -322,12 +337,13 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         adapter3 = ArrayAdapter.createFromResource(this, R.array.goods_unit, R.layout.spinner_item);
         adapter3.setDropDownViewResource(R.layout.dropdown_stytle);
         spinnerUnit.setAdapter(adapter3);
-
         spinnerPowerName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == adapter1.getCount() - 1) {
-                    initSelectViewStatus(view);
+//                    initSelectViewStatus(view);
+                    rlPowerName.setVisibility(View.VISIBLE);
+                    spinnerPowerName.setVisibility(View.GONE);
                 }
             }
 
@@ -340,7 +356,8 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == adapter2.getCount() - 1) {
-                    initSelectViewStatus(view);
+                    llDestroyStuff.setVisibility(View.VISIBLE);
+                    spinnerDestroyStuff.setVisibility(View.GONE);
                 }
             }
 
@@ -353,7 +370,8 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == adapter3.getCount() - 1) {
-                    initSelectViewStatus(view);
+                    llUnit.setVisibility(View.VISIBLE);
+                    spinnerUnit.setVisibility(View.GONE);
                 }
             }
 
@@ -568,7 +586,13 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         site = tvCreateAddress.getText().toString().substring(3);
         date = tvCreateDate.getText().toString().substring(4);
         status = tvCompensateState.getText().toString();
-        power = spinnerPowerName.getSelectedItem().toString();
+        if (rlPowerName.getVisibility() == View.GONE) {
+            powerName = spinnerPowerName.getSelectedItem().toString();
+        } else if (rlPowerName.getVisibility() == View.VISIBLE) {
+            powerName = etPowerName.getText().toString();
+        } else {
+            powerName = "";
+        }
         construction = etConstruction.getText().toString();
         projectCode = etProjectCode.getText().toString();
         projectName = etProjectName.getText().toString();
@@ -608,7 +632,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         info.setSite(site);
         info.setDate(date);
         info.setStatus(status);
-        info.setPower(power);
+        info.setPower(powerName);
         info.setConstruction(construction);
         info.setProjectCode(projectCode);
         info.setProjectName(projectName);
@@ -952,27 +976,31 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         return path;
     }
 
-    @OnClick({R.id.tv_play, R.id.iv_delete_voice, R.id.btn_save, R.id.iv_identity_card, R.id.iv_bank_card, R.id.iv_scene1, R.id.iv_scene2, R.id.iv_scene3, R.id.iv_scene4, R.id.iv_back, R.id.tv_total, R.id.tv_add})
+    @OnClick({R.id.iv_power_name, R.id.iv_destroy_stuff_add, R.id.iv_unit_add, R.id.tv_play, R.id.iv_delete_voice, R.id.btn_save, R.id.iv_identity_card, R.id.iv_bank_card, R.id.iv_scene1, R.id.iv_scene2, R.id.iv_scene3, R.id.iv_scene4, R.id.iv_back, R.id.tv_total, R.id.tv_add})
     public void onClick(View v) {
         File file = new File(imagePath, pathName);
         switch (v.getId()) {
-            case R.id.tv_play:
-                try {
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    file.createNewFile();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                openAssignFolder(file);
+            case R.id.iv_power_name:
+                etPowerName.setText("");
+                powerName = "";
+                rlPowerName.setVisibility(View.GONE);
+                spinnerPowerName.setVisibility(View.VISIBLE);
+                spinnerPowerName.setSelection(0);
+                spinnerPowerName.performClick();
                 break;
-            case R.id.iv_delete_voice:
-                if (file.exists()) {
-                    file.delete();
-                }
-                tvRecord.setVisibility(View.VISIBLE);
-                llFind.setVisibility(View.GONE);
+            case R.id.iv_destroy_stuff_add:
+                etDestroyStuff.setText("");
+                llDestroyStuff.setVisibility(View.GONE);
+                spinnerDestroyStuff.setVisibility(View.VISIBLE);
+                spinnerDestroyStuff.setSelection(0);
+                spinnerDestroyStuff.performClick();
+                break;
+            case R.id.iv_unit_add:
+                etUnit.setText("");
+                llUnit.setVisibility(View.GONE);
+                spinnerUnit.setVisibility(View.VISIBLE);
+                spinnerUnit.setSelection(0);
+                spinnerUnit.performClick();
                 break;
             case R.id.btn_save:
 //                try {
@@ -1050,6 +1078,26 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
                         index--;
                     }
                 });
+                view.findViewById(R.id.iv_destroy_stuff_add).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        view.findViewById(R.id.ll_destroy_stuff_add).setVisibility(View.GONE);
+                        Spinner spinnerDestroyStuff = view.findViewById(R.id.spinner_destroy_stuff);
+                        spinnerDestroyStuff.setVisibility(View.VISIBLE);
+                        spinnerDestroyStuff.setSelection(0);
+                        spinnerDestroyStuff.performClick();
+                    }
+                });
+                view.findViewById(R.id.iv_unit_add).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        view.findViewById(R.id.ll_unit_add).setVisibility(View.GONE);
+                        Spinner spinnerUnit = view.findViewById(R.id.spinner_unit);
+                        spinnerUnit.setVisibility(View.VISIBLE);
+                        spinnerUnit.setSelection(0);
+                        spinnerUnit.performClick();
+                    }
+                });
                 final EditText etAmount = view.findViewById(R.id.et_amount);
                 final EditText etUnitPrice = view.findViewById(R.id.et_unit_price);
                 final EditText etSubtotal = view.findViewById(R.id.et_subtotal);
@@ -1085,15 +1133,10 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         LayoutInflater inflater = LayoutInflater.from(this);
         final View view = inflater.inflate(R.layout.one, null);
-//        view.findViewById(R.id.tv_delete).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ViewGroup parent = (ViewGroup) v.getParent();
-//                parent.removeView(view);
-//            }
-//        });
-        Spinner spinnerDestroy = view.findViewById(R.id.spinner_destroy_stuff);
-        Spinner spinnerUnit = view.findViewById(R.id.spinner_unit);
+        final Spinner spinnerDestroy = view.findViewById(R.id.spinner_destroy_stuff);
+        final Spinner spinnerUnit = view.findViewById(R.id.spinner_unit);
+        final LinearLayout llStuffAdd = view.findViewById(R.id.ll_destroy_stuff_add);
+        final LinearLayout llUnitAdd = view.findViewById(R.id.ll_unit_add);
 
         adapter2 = ArrayAdapter.createFromResource(this, R.array.destroy_goods, R.layout.spinner_item);
         adapter2.setDropDownViewResource(R.layout.dropdown_stytle);
@@ -1107,7 +1150,9 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == adapter2.getCount() - 1) {
-                    initSelectViewStatus(view);
+//                    initSelectViewStatus(view);
+                    llStuffAdd.setVisibility(View.VISIBLE);
+                    spinnerDestroy.setVisibility(View.GONE);
                 }
             }
 
@@ -1120,7 +1165,9 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == adapter3.getCount() - 1) {
-                    initSelectViewStatus(view);
+//                    initSelectViewStatus(view);
+                    llUnitAdd.setVisibility(View.VISIBLE);
+                    spinnerUnit.setVisibility(View.GONE);
                 }
             }
 
@@ -1213,12 +1260,16 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
 //        String t = String.format("%.2f", total);
 //        String d = NumberToCN.number2CNMontrayUnit(new BigDecimal(Double.parseDouble(t)));
 //        tvTotal.setText("其他：\n经项目管理单位、施工方单位、涉赔人员协商确定一次性补偿人民币合计：(" + t + ")元， 金额(" + d + ")");
-
+        if (rlPowerName.getVisibility() == View.GONE) {
+            emptyPowerName = TextUtils.isEmpty(spinnerPowerName.getSelectedItem().toString());
+        } else if (rlPowerName.getVisibility() == View.VISIBLE) {
+            emptyPowerName = TextUtils.isEmpty(etPowerName.getText().toString());
+        }
         if (!TextUtils.isEmpty(etSubtotal.getText()) &&
                 !TextUtils.isEmpty(tvCreateAddress.getText()) &&
                 !TextUtils.isEmpty(tvCreateDate.getText()) &&
                 !TextUtils.isEmpty(tvCompensateState.getText()) &&
-                !TextUtils.isEmpty(spinnerPowerName.getSelectedItem().toString()) &&
+                !emptyPowerName &&
                 !TextUtils.isEmpty(etConstruction.getText()) &&
                 !TextUtils.isEmpty(etProjectCode.getText()) &&
                 !TextUtils.isEmpty(etProjectName.getText()) &&
