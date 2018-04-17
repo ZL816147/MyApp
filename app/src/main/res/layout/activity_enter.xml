@@ -110,7 +110,7 @@
                             android:hint="填写本人姓名"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                     </LinearLayout>
@@ -168,7 +168,7 @@
                                     android:paddingLeft="8dp"
                                     android:paddingRight="8dp"
                                     android:textColor="@color/black"
-                                    android:textColorHint="@android:color/holo_red_light"
+                                    android:textColorHint="@color/black"
                                     android:textSize="@dimen/smallSize" />
 
                             </RelativeLayout>
@@ -214,7 +214,7 @@
                             android:hint="长按语音输入"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                     </TableRow>
@@ -245,7 +245,7 @@
                             android:hint="长按语音输入"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                     </TableRow>
@@ -276,7 +276,7 @@
                             android:hint="长按语音输入"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                     </TableRow>
@@ -350,7 +350,7 @@
                                             android:paddingLeft="8dp"
                                             android:paddingRight="8dp"
                                             android:textColor="@color/black"
-                                            android:textColorHint="@android:color/holo_red_light"
+                                            android:textColorHint="@color/black"
                                             android:textSize="@dimen/smallSize" />
                                     </LinearLayout>
 
@@ -408,7 +408,7 @@
                                         android:hint="输入"
                                         android:inputType="number"
                                         android:textColor="@color/black"
-                                        android:textColorHint="@android:color/holo_red_light"
+                                        android:textColorHint="@color/black"
                                         android:textSize="@dimen/smallSize" />
 
                                     <TextView
@@ -457,7 +457,7 @@
                                             android:paddingLeft="8dp"
                                             android:paddingRight="8dp"
                                             android:textColor="@color/black"
-                                            android:textColorHint="@android:color/holo_red_light"
+                                            android:textColorHint="@color/black"
                                             android:textSize="@dimen/smallSize" />
                                     </LinearLayout>
 
@@ -523,7 +523,7 @@
                                         android:hint="输入"
                                         android:inputType="numberDecimal"
                                         android:textColor="@color/black"
-                                        android:textColorHint="@android:color/holo_red_light"
+                                        android:textColorHint="@color/black"
                                         android:textSize="@dimen/smallSize" />
 
                                     <TextView
@@ -562,7 +562,7 @@
                                         android:hint="自动计算"
                                         android:inputType="numberDecimal"
                                         android:textColor="@color/black"
-                                        android:textColorHint="@android:color/holo_red_light"
+                                        android:textColorHint="@color/black"
                                         android:textSize="@dimen/smallSize" />
 
                                     <TextView
@@ -773,7 +773,7 @@
                             android:longClickable="false"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                         <TextView
@@ -797,7 +797,7 @@
                             android:hint="长按手写签字"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                     </TableRow>
@@ -828,7 +828,7 @@
                             android:hint="长按语音输入"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                         <TextView
@@ -851,7 +851,7 @@
                             android:hint="长按拍照识别"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                     </TableRow>
@@ -882,7 +882,7 @@
                             android:hint="长按语音输入"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                         <TextView
@@ -905,7 +905,7 @@
                             android:hint="长按语音输入"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                     </TableRow>
@@ -936,7 +936,7 @@
                             android:hint="长按语音输入"
                             android:paddingLeft="5dp"
                             android:textColor="@color/black"
-                            android:textColorHint="@android:color/holo_red_light"
+                            android:textColorHint="@color/black"
                             android:textSize="@dimen/smallSize" />
 
                         <TextView
@@ -985,7 +985,7 @@
                                     android:hint="查看"
                                     android:paddingLeft="5dp"
                                     android:textColor="@color/black"
-                                    android:textColorHint="@android:color/holo_red_light"
+                                    android:textColorHint="@color/black"
                                     android:textSize="@dimen/smallSize" />
 
                                 <ImageView

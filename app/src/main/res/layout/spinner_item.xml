@@ -10,5 +10,5 @@
     android:background="@color/white"
     android:clickable="true"
     android:focusableInTouchMode="false"
-    android:textColor="@android:color/holo_red_light"
+    android:textColor="@color/black"
     android:textSize="@dimen/smallSize" />
