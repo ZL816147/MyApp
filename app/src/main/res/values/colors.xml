@@ -8,6 +8,7 @@
     <color name="app_theme_one">#1400BFFF</color>
     <color name="app_theme">#FF6E00</color>
     <color name="app_theme_assist">#FF4400</color>
+    <color name="app_tips">#EEF5FF</color>
     <color name="app_theme_transparent_one">#14FF4400</color>
     <color name="app_theme_transparent_two">#0AFF6E00</color>
     <color name="app_theme_select">#FF6600</color>
@@ -19,7 +20,7 @@
     <color name="bg_yellow">#EAC403</color>
     <color name="bg_green">#0DF5F7</color>
     <color name="bg_sky_blue">#715AB9</color>
-    <color name="app_assist">#FF9332</color>
+    <color name="app_assist">#ECD980</color>
     <color name="app_warn">#36AFFF</color>
     <color name="app_warn_select">#0A93EA</color>
     <color name="app_text_title_black">#333333</color>

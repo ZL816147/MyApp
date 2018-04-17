@@ -976,7 +976,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         return path;
     }
 
-    @OnClick({R.id.iv_power_name, R.id.iv_destroy_stuff_add, R.id.iv_unit_add, R.id.tv_play, R.id.iv_delete_voice, R.id.btn_save, R.id.iv_identity_card, R.id.iv_bank_card, R.id.iv_scene1, R.id.iv_scene2, R.id.iv_scene3, R.id.iv_scene4, R.id.iv_back, R.id.tv_total, R.id.tv_add})
+    @OnClick({R.id.iv_power_name, R.id.iv_destroy_stuff, R.id.iv_unit, R.id.tv_play, R.id.iv_delete_voice, R.id.btn_save, R.id.iv_identity_card, R.id.iv_bank_card, R.id.iv_scene1, R.id.iv_scene2, R.id.iv_scene3, R.id.iv_scene4, R.id.iv_back, R.id.tv_total, R.id.tv_add})
     public void onClick(View v) {
         File file = new File(imagePath, pathName);
         switch (v.getId()) {
@@ -988,14 +988,14 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
                 spinnerPowerName.setSelection(0);
                 spinnerPowerName.performClick();
                 break;
-            case R.id.iv_destroy_stuff_add:
+            case R.id.iv_destroy_stuff:
                 etDestroyStuff.setText("");
                 llDestroyStuff.setVisibility(View.GONE);
                 spinnerDestroyStuff.setVisibility(View.VISIBLE);
                 spinnerDestroyStuff.setSelection(0);
                 spinnerDestroyStuff.performClick();
                 break;
-            case R.id.iv_unit_add:
+            case R.id.iv_unit:
                 etUnit.setText("");
                 llUnit.setVisibility(View.GONE);
                 spinnerUnit.setVisibility(View.VISIBLE);

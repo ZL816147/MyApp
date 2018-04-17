@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">政处手持终端</string>
     <string name="exit">再按一次退出程序</string>
-    <string name="create_address_format"><Data><![CDATA[<font color="#666666">地点：</font><font color="#FF4400">%s</font>]]></Data></string>
-    <string name="create_date_format"><Data><![CDATA[<font color="#666666">制单日：</font><font color="#FF4400">%s</font>]]></Data></string>
+    <string name="create_address_format"><Data><![CDATA[<font color="#666666">地点：</font><font color="#FF4444">%s</font>]]></Data></string>
+    <string name="create_date_format"><Data><![CDATA[<font color="#666666">制单日：</font><font color="#FF4444">%s</font>]]></Data></string>
     <string name="compensate_state_format"><Data><![CDATA[<font color="#666666">赔付情况：</font><font color="#FF4400">%s</font>]]></Data></string>
     <string name="other"><Data>其他：\n经项目管理单位、施工方单位、涉赔人员协商确定一次性补偿人民币合计：(    )元， 金额(大写自动生成)</Data></string>
     <string name="error">加载出错啦，点击屏幕重试吧</string>

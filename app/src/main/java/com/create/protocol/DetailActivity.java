@@ -47,6 +47,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -108,8 +109,6 @@ public class DetailActivity extends BaseActivity {
         int id = getIntent().getIntExtra("id", 0);
         String projectCode = getIntent().getStringExtra("projectCode");
         Info info = DataSupport.find(Info.class, id);
-        LogUtils.e(projectCode + "++++++++++++++++++++++++++++++++");
-        List<Info> list = DataSupport.where("projectCode = ?", projectCode).find(Info.class);
 
         if (info != null) {
             tvId.setText(info.getId() + "");
@@ -135,10 +134,12 @@ public class DetailActivity extends BaseActivity {
                 tvResponsibleSign.setText(info.getResponsiblePeople());
             }
             tvResponsibleSign.setFocusable(false);
-
-
 //            tvPowerPeople.setText("供电所负责人：" + info.getPowerPeople());
         }
+
+        LogUtils.e(projectCode + "++++++++++++++++++++++++++++++++");
+        List<Info> list = DataSupport.where("projectCode = ?", projectCode).find(Info.class);
+        Collections.reverse(list);
         double total = 0;
         for (int i = 0; i < list.size(); i++) {
             total += Double.parseDouble(list.get(i).getDescribe());

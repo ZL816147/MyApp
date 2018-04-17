@@ -51,9 +51,9 @@
                 <LinearLayout
                     android:id="@+id/ll_destroy_stuff_add"
                     android:layout_width="wrap_content"
-                    android:gravity="center"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:gravity="center"
                     android:visibility="gone">
 
                     <EditText
@@ -62,24 +62,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="0dp"
                         android:background="@color/white"
-                        android:gravity="center"
-                        android:hint="输入"
+                        android:gravity="left"
+                        android:hint="手动输入"
                         android:longClickable="false"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
                         android:textColor="@color/black"
                         android:textColorHint="@android:color/holo_red_light"
-                        android:textSize="@dimen/smallSize"
-                        android:visibility="gone" />
-
-                    <ImageView
-                        android:layout_marginLeft="4dp"
-                        android:id="@+id/iv_destroy_stuff_add"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:paddingLeft="6dp"
-                        android:paddingRight="6dp"
-                        android:src="@drawable/dynamic_help_button_drop_down" />
-
+                        android:textSize="@dimen/smallSize" />
                 </LinearLayout>
 
                 <Spinner
@@ -92,6 +82,15 @@
                     android:gravity="center"
                     android:overlapAnchor="false"
                     android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:id="@+id/iv_destroy_stuff_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:src="@drawable/dynamic_help_button_drop_down" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -157,11 +156,11 @@
                     android:textSize="@dimen/smallSize" />
 
                 <LinearLayout
-                    android:gravity="center"
                     android:id="@+id/ll_unit_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     android:visibility="gone">
 
@@ -172,21 +171,12 @@
                         android:layout_marginLeft="0dp"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:hint="输入"
+                        android:hint="手动输入"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
                         android:textColor="@color/black"
                         android:textColorHint="@android:color/holo_red_light"
-                        android:textSize="@dimen/smallSize"
-                        android:visibility="gone" />
-
-                    <ImageView
-                        android:layout_marginLeft="4dp"
-                        android:id="@+id/iv_unit_add"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:paddingLeft="6dp"
-                        android:paddingRight="6dp"
-                        android:src="@drawable/dynamic_help_button_drop_down" />
+                        android:textSize="@dimen/smallSize"/>
 
                 </LinearLayout>
 
@@ -200,6 +190,15 @@
                     android:gravity="center"
                     android:overlapAnchor="false"
                     android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:id="@+id/iv_unit_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:src="@drawable/dynamic_help_button_drop_down" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -252,7 +251,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text=")；"
+                    android:text=");"
                     android:textColor="@color/black"
                     android:textSize="@dimen/smallSize" />
             </LinearLayout>

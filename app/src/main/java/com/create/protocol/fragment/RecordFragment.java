@@ -35,6 +35,7 @@ import com.create.protocol.widget.ClearEditText;
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -75,6 +76,7 @@ public class RecordFragment extends BaseFragment implements MyAdapter.OnShowItem
     @Override
     protected void init() {
         infoList = DataSupport.findAll(Info.class);
+        Collections.reverse(infoList);
         dataList = new ArrayList<>();
         selectList = new ArrayList<>();
         dataList.addAll(infoList);

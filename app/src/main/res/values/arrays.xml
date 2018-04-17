@@ -14,7 +14,7 @@
         <item>雅周供电所</item>
         <item>胡集供电所</item>
         <item>曲塘供电所</item>
-        <item>手工录入</item>
+        <item>手动输入</item>
     </string-array>
     <string-array name="destroy_goods">
         <item>粮食作物</item>
@@ -24,7 +24,7 @@
         <item>土地</item>
         <item>水泥地</item>
         <item>建筑物</item>
-        <item>手工录入</item>
+        <item>手动输入</item>
     </string-array>
     <string-array name="goods_unit">
         <item>平方米</item>
@@ -33,6 +33,6 @@
         <item>处</item>
         <item>千克</item>
         <item>立方米</item>
-        <item>手工录入</item>
+        <item>手动输入</item>
     </string-array>
 </resources>
