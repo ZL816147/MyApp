@@ -151,28 +151,30 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
                     @Override
                     public void onNext(Weather weather) {
-                        if (weather.getError().equals("0") && weather.getStatus().equals("success")) {
-                            recyclerView.setVisibility(View.VISIBLE);
-                            mLlayoutError.setVisibility(View.GONE);
-                            List<Weather.DataBean.ResultIndexList> listindex = weather.getResults().get(0).getIndex();
-                            List<Weather.DataBean.ResultWeatherDataList> listweather = weather.getResults().get(0).getWeather_data();
-                            String date = listweather.get(0).getDate().replaceAll(" ", "");// "周六",
-                            String mWeather = listweather.get(0).getWeather();//  "晴转阴",
-                            String wind = listweather.get(0).getWind();// ": "微风",
-                            String[] aa = date.split("：");
-                            mTvAddress.setText(mLocation);
-                            mTvTemperature.setText(aa[1].replace("℃)", "") + "°");
-                            mTvTemperatureDetail.setText(weather.getDate() + " " + aa[0].replace("(实时", "").substring(0, 2)
-                                    + "  pm2.5 " + weather.getResults().get(0).getPm25());
-                            mTvWind.setText(wind);
-                            mTvWeather.setText(mWeather);
-                            mTvTemperaturePeople.setText(aa[1].replace("℃)", "") + "°");
-                            weatherAdapter.addAll(listweather);
-                            mMainAdapter.replace(listindex);
-                        } else {
-                            recyclerView.setVisibility(View.GONE);
-                            mLlayoutError.setVisibility(View.VISIBLE);
-                            mTvErrorInformation.setText(R.string.error);
+                        if (recyclerView != null) {
+                            if (weather.getError().equals("0") && weather.getStatus().equals("success")) {
+                                recyclerView.setVisibility(View.VISIBLE);
+                                mLlayoutError.setVisibility(View.GONE);
+                                List<Weather.DataBean.ResultIndexList> listindex = weather.getResults().get(0).getIndex();
+                                List<Weather.DataBean.ResultWeatherDataList> listweather = weather.getResults().get(0).getWeather_data();
+                                String date = listweather.get(0).getDate().replaceAll(" ", "");// "周六",
+                                String mWeather = listweather.get(0).getWeather();//  "晴转阴",
+                                String wind = listweather.get(0).getWind();// ": "微风",
+                                String[] aa = date.split("：");
+                                mTvAddress.setText(mLocation);
+                                mTvTemperature.setText(aa[1].replace("℃)", "") + "°");
+                                mTvTemperatureDetail.setText(weather.getDate() + " " + aa[0].replace("(实时", "").substring(0, 2)
+                                        + "  pm2.5 " + weather.getResults().get(0).getPm25());
+                                mTvWind.setText(wind);
+                                mTvWeather.setText(mWeather);
+                                mTvTemperaturePeople.setText(aa[1].replace("℃)", "") + "°");
+                                weatherAdapter.addAll(listweather);
+                                mMainAdapter.replace(listindex);
+                            } else {
+                                recyclerView.setVisibility(View.GONE);
+                                mLlayoutError.setVisibility(View.VISIBLE);
+                                mTvErrorInformation.setText(R.string.error);
+                            }
                         }
                     }
                 });

@@ -151,8 +151,8 @@ public class ProtocolActivity extends BaseActivity implements OnLoadCompleteList
                 } catch (DocumentException e) {
                     e.printStackTrace();
                 }
-                openAssignFolder(file);
-//                sharePDF(file);
+//                openAssignFolder(new File(pdfFile));
+                sharePDF(new File(pdfFile));
                 Toast.makeText(this, "保存成功", Toast.LENGTH_LONG).show();
 //                ShareBoardConfig config = new ShareBoardConfig();
 //                config.setMenuItemBackgroundShape(ShareBoardConfig.BG_SHAPE_CIRCULAR);// 圆角背景

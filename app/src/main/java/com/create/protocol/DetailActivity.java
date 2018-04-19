@@ -1,18 +1,11 @@
 package com.create.protocol;
 
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.v4.content.FileProvider;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
@@ -20,24 +13,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.create.protocol.adapter.RecordAdapter;
+import com.create.protocol.adapter.DetailAdapter;
 import com.create.protocol.base.BaseActivity;
 import com.create.protocol.model.Info;
 import com.create.protocol.utils.LogUtils;
+import com.create.protocol.utils.SaveToExcel;
 import com.create.protocol.widget.CustomListView;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfPageEventHelper;
-import com.itextpdf.text.pdf.PdfWriter;
 
 import org.litepal.crud.DataSupport;
 
@@ -97,7 +82,12 @@ public class DetailActivity extends BaseActivity {
     // 图片存储
     private static final String imagePath = Environment.getExternalStorageDirectory() + "/protocol/";
     private Uri imageUri;
-    private RecordAdapter adapter;
+    private DetailAdapter adapter;
+    private String date;
+    private SaveToExcel saveToExcel;
+    private List<Info> list;
+    private double total;
+    private String excelFileName;
 
     @Override
     protected int getLayout() {
@@ -106,6 +96,13 @@ public class DetailActivity extends BaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+        Date curDate = new Date(System.currentTimeMillis());
+        date = formatter.format(curDate);
+//        String excelFileName = date + "_" + "政策处理明细单" + ".xls";
+        excelFileName = date + "_" + "zcclmxd" + ".xls";
+        saveToExcel = new SaveToExcel(this, imagePath + excelFileName);
+
         int id = getIntent().getIntExtra("id", 0);
         String projectCode = getIntent().getStringExtra("projectCode");
         Info info = DataSupport.find(Info.class, id);
@@ -136,17 +133,15 @@ public class DetailActivity extends BaseActivity {
             tvResponsibleSign.setFocusable(false);
 //            tvPowerPeople.setText("供电所负责人：" + info.getPowerPeople());
         }
-
-        LogUtils.e(projectCode + "++++++++++++++++++++++++++++++++");
-        List<Info> list = DataSupport.where("projectCode = ?", projectCode).find(Info.class);
-        Collections.reverse(list);
-        double total = 0;
+        list = DataSupport.where("projectCode = ?", projectCode).find(Info.class);
+//        Collections.reverse(list);
+        total = 0;
         for (int i = 0; i < list.size(); i++) {
             total += Double.parseDouble(list.get(i).getDescribe());
         }
         tvTotal.setText("汇总金额(元)：" + String.format("%.2f", total));
         tvTotal.setFocusable(false);
-        adapter = new RecordAdapter(list);
+        adapter = new DetailAdapter(list);
         lvRecords.setAdapter(adapter);
     }
 
@@ -176,12 +171,9 @@ public class DetailActivity extends BaseActivity {
                 outTransitionAnimation();
                 break;
             case R.id.btn_save:
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-                Date curDate = new Date(System.currentTimeMillis());
-                String str = formatter.format(curDate);
                 // 保存成图片
                 Bitmap bitmap = loadBitmapFromView(llView);
-                String fileName = str + "_" + "政策处理明细单" + ".jpg";
+                String fileName = date + "_" + "zcclmxd" + ".jpg";
                 File file = new File(imagePath, fileName);
                 try {
                     if (file.exists()) {
@@ -203,7 +195,7 @@ public class DetailActivity extends BaseActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                String pdfFile = imagePath + str + "_" + "政策处理明细单" + ".pdf";
+                String pdfFile = imagePath + date + "_" + "zcclmxd" + ".pdf";
                 List imgList = new ArrayList<String>();
                 imgList.add(imagePath + fileName);
                 try {
@@ -214,8 +206,37 @@ public class DetailActivity extends BaseActivity {
                 } catch (DocumentException e) {
                     e.printStackTrace();
                 }
-                openAssignFolder(file);
+//                openAssignFolder(new File(pdfFile));
 
+                if (list != null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i) != null) {
+                            String power = list.get(i).getPower();
+                            String projectName = list.get(i).getProjectName();
+//                            String marketingNo = list.get(i).getMarketingNo();
+                            String openBank = list.get(i).getOpenBank();
+                            String bankCard = list.get(i).getBankCard();
+                            String status = list.get(i).getStatus();
+                            String describe = list.get(i).getDescribe();
+                            if (i == list.size() - 1) {
+                                saveToExcel.writeToExcel(power, projectName, openBank, bankCard, status, /*marketingNo,*/ describe, total);
+                            } else {
+                                saveToExcel.writeToExcel(power, projectName, openBank, bankCard, status, /*marketingNo,*/ describe, "");
+                            }
+                        }
+                    }
+                }
+
+                File xlsFile = new File(imagePath, excelFileName);
+                try {
+                    if (xlsFile.exists()) {
+                        xlsFile.delete();
+                    }
+                    xlsFile.createNewFile();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                sharePDF(xlsFile);
                 Toast.makeText(this, "保存成功", Toast.LENGTH_LONG).show();
                 break;
             default:

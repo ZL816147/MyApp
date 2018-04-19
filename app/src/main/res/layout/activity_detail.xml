@@ -93,7 +93,7 @@
                         android:layout_marginTop="0.5dp"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:text="XX供电所"
+                        android:text="供电所"
                         android:textColor="@color/black"
                         android:textSize="@dimen/normalSize"
                         android:textStyle="bold" />
@@ -106,7 +106,7 @@
                         android:layout_marginTop="0.5dp"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:text="XX台片"
+                        android:text="项目名称"
                         android:textColor="@color/black"
                         android:textSize="@dimen/normalSize"
                         android:textStyle="bold" />
@@ -133,6 +133,7 @@
                         android:background="@color/white"
                         android:gravity="center"
                         android:text="营销户号"
+                        android:visibility="gone"
                         android:textColor="@color/black"
                         android:textSize="@dimen/normalSize"
                         android:textStyle="bold" />

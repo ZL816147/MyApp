@@ -11,7 +11,7 @@ import java.io.IOException;
  * Created by jsntnjzb on 2018/4/8.
  */
 
-public class AudioRecoderUtils{
+public class AudioRecoderUtils {
     private String filePath;
     private MediaRecorder mMediaRecorder;
     private final String TAG = "MediaRecord";
@@ -77,6 +77,7 @@ public class AudioRecoderUtils{
      */
     public long stopRecord() {
         if (mMediaRecorder == null) {
+            LogUtils.e("++++++++++++++++++++++++");
             return 0L;
         }
         endTime = System.currentTimeMillis();
@@ -89,6 +90,8 @@ public class AudioRecoderUtils{
         mMediaRecorder.release();
         mMediaRecorder = null;
         LogUtils.i("Time" + (endTime - startTime));
+        audioStatusUpdateListener.onStop(filePath);
+        filePath = "";
         return endTime - startTime;
     }
 
@@ -125,5 +128,7 @@ public class AudioRecoderUtils{
 
     public interface OnAudioStatusUpdateListener {
         void onUpdate(double db);
+
+        void onStop(String filePath);
     }
 }

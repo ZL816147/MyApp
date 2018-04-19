@@ -125,6 +125,10 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:hint="输入"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
                     android:inputType="number"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
@@ -166,17 +170,17 @@
 
                     <EditText
                         android:id="@+id/et_unit_add"
-                        android:layout_width="match_parent"
-                        android:layout_height="11dp"
-                        android:layout_marginLeft="0dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:hint="手动输入"
+                        android:longClickable="false"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
-                        android:textSize="@dimen/smallSize"/>
+                        android:textSize="@dimen/smallSize" />
 
                 </LinearLayout>
 
@@ -242,6 +246,10 @@
                     android:background="@color/white"
                     android:gravity="center_vertical"
                     android:hint="输入"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
                     android:inputType="numberDecimal"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
@@ -251,7 +259,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text=");"
+                    android:text=")；"
                     android:textColor="@color/black"
                     android:textSize="@dimen/smallSize" />
             </LinearLayout>
@@ -281,6 +289,10 @@
                     android:background="@color/white"
                     android:gravity="center"
                     android:hint="自动计算"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
                     android:inputType="numberDecimal"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"

@@ -153,8 +153,8 @@
                                 android:id="@+id/rl_power_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:gravity="center"
                                 android:background="@color/white"
+                                android:gravity="center"
                                 android:visibility="gone">
 
                                 <EditText
@@ -162,9 +162,9 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:background="@color/white"
+                                    android:gravity="left|center_vertical"
                                     android:hint="手动输入"
                                     android:longClickable="true"
-                                    android:gravity="left|center_vertical"
                                     android:paddingLeft="8dp"
                                     android:paddingRight="8dp"
                                     android:textColor="@color/black"
@@ -184,10 +184,10 @@
                                 android:tooltipText="下拉选择" />
 
                             <ImageView
-                                android:layout_alignParentRight="true"
                                 android:id="@+id/iv_power_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
                                 android:paddingLeft="6dp"
                                 android:paddingRight="6dp"
                                 android:src="@drawable/dynamic_help_button_drop_down" />
@@ -367,7 +367,7 @@
                                     <ImageView
                                         android:id="@+id/iv_destroy_stuff"
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_height="match_parent"
                                         android:paddingLeft="6dp"
                                         android:paddingRight="6dp"
                                         android:src="@drawable/dynamic_help_button_drop_down" />
@@ -377,7 +377,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical"
-                                        android:text=");"
+                                        android:text=")；"
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/smallSize" />
                                 </LinearLayout>
@@ -406,6 +406,10 @@
                                         android:background="@color/white"
                                         android:gravity="center"
                                         android:hint="输入"
+                                        android:paddingBottom="2dp"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="5dp"
+                                        android:paddingTop="2dp"
                                         android:inputType="number"
                                         android:textColor="@color/black"
                                         android:textColorHint="@color/black"
@@ -415,7 +419,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
                                         android:gravity="center_vertical"
-                                        android:text=");"
+                                        android:text=")；"
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/smallSize" />
                                 </LinearLayout>
@@ -474,7 +478,6 @@
                                         android:id="@+id/iv_unit"
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
-                                        android:layout_alignParentRight="true"
                                         android:paddingLeft="6dp"
                                         android:paddingRight="6dp"
                                         android:src="@drawable/dynamic_help_button_drop_down" />
@@ -483,7 +486,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
                                         android:gravity="center_vertical"
-                                        android:text=");"
+                                        android:text=")；"
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/smallSize" />
                                 </LinearLayout>
@@ -522,6 +525,10 @@
                                         android:gravity="center_vertical"
                                         android:hint="输入"
                                         android:inputType="numberDecimal"
+                                        android:paddingBottom="2dp"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="5dp"
+                                        android:paddingTop="2dp"
                                         android:textColor="@color/black"
                                         android:textColorHint="@color/black"
                                         android:textSize="@dimen/smallSize" />
@@ -530,7 +537,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_vertical"
-                                        android:text=");"
+                                        android:text=")；"
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/smallSize" />
                                 </LinearLayout>
@@ -561,6 +568,10 @@
                                         android:gravity="center"
                                         android:hint="自动计算"
                                         android:inputType="numberDecimal"
+                                        android:paddingBottom="2dp"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="5dp"
+                                        android:paddingTop="2dp"
                                         android:textColor="@color/black"
                                         android:textColorHint="@color/black"
                                         android:textSize="@dimen/smallSize" />

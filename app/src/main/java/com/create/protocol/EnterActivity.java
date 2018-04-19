@@ -271,6 +271,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
     private long downT;
     private String pathName = "";
     private boolean emptyPowerName;
+    private File audioFile;
 
     @Override
     protected int getLayout() {
@@ -279,8 +280,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        recoderDialog = new AudioRecoderDialog(this);
-        recoderDialog.setShowAlpha(0.98f);
+
         setListener();
         mInputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         startLocation();
@@ -289,6 +289,25 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         String str = formatter.format(curDate);
         tvCreateDate.setText(Html.fromHtml(getString(R.string.create_date_format, str)));
         time = tvCreateDate.getText().toString().trim().replace("制单日：", "").replace("年", "").replace("月", "").replace("日", "").replace(" ", "").replace(":", "");
+
+        recoderDialog = new AudioRecoderDialog(this);
+        recoderDialog.setShowAlpha(0.98f);
+        if (!TextUtils.isEmpty(tvCompensateState.getText().toString())) {
+            pathName = tvCompensateState.getText().toString() + "_" + time + ".amr";
+        } else {
+            pathName = time + ".amr";
+        }
+        audioFile = new File(imagePath, pathName);
+        try {
+            if (audioFile.exists()) {
+                audioFile.delete();
+            }
+            audioFile.createNewFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        recoderUtils = new AudioRecoderUtils(audioFile);
+        recoderUtils.setOnAudioStatusUpdateListener(EnterActivity.this);
         discern();
     }
 
@@ -385,22 +404,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         tvRecord.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (!TextUtils.isEmpty(tvCompensateState.getText().toString())) {
-                    pathName = tvCompensateState.getText().toString() + "_" + time + ".amr";
-                } else {
-                    pathName = time + ".amr";
-                }
-                File file = new File(imagePath, pathName);
-                try {
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    file.createNewFile();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                recoderUtils = new AudioRecoderUtils(file);
-                recoderUtils.setOnAudioStatusUpdateListener(EnterActivity.this);
+
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         recoderUtils.startRecord();
@@ -434,6 +438,11 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
             recoderDialog.setLevel((int) db);
             recoderDialog.setTime(System.currentTimeMillis() - downT);
         }
+    }
+
+    @Override
+    public void onStop(String filePath) {
+        Toast.makeText(this, "录音保存在：" + filePath, Toast.LENGTH_SHORT).show();
     }
 
     private void discern() {
@@ -1001,6 +1010,44 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
                 spinnerUnit.setVisibility(View.VISIBLE);
                 spinnerUnit.setSelection(0);
                 spinnerUnit.performClick();
+                break;
+            case R.id.tv_play:
+                if (null == audioFile || !audioFile.exists()) {
+                    return;
+                }
+//                // 获取父目录
+////                File parentFlie = new File(audioFile.getParent());
+//                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//                intent.addCategory(Intent.CATEGORY_OPENABLE);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                Uri uri;
+//                if (Build.VERSION.SDK_INT >= 24) {
+//                    uri = FileProvider.getUriForFile(this, "com.create.protocol", audioFile);
+//                } else {
+//                    uri = Uri.fromFile(audioFile);
+//                }
+//                intent.setDataAndType(uri, "*/*");
+//                startActivity(intent);
+
+//                 获取父目录
+//                File parentFlie = new File(audioFile.getParent());
+                Uri uri;
+                if (Build.VERSION.SDK_INT >= 24) {
+                    uri = FileProvider.getUriForFile(this, "com.create.protocol", audioFile);
+                } else {
+                    uri = Uri.fromFile(audioFile);
+                }
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setDataAndType(uri, "*/*");
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                startActivity(intent);
+                break;
+            case R.id.iv_delete_voice:
+                if (audioFile.exists()) {
+                    audioFile.delete();
+                    llFind.setVisibility(View.GONE);
+                    tvRecord.setVisibility(View.VISIBLE);
+                }
                 break;
             case R.id.btn_save:
 //                try {

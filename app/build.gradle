@@ -17,7 +17,7 @@ android {
         versionCode 1
         versionName "1.0"
         ndk {
-            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+            abiFilters "armeabi", /*"armeabi-v7a", "arm64-v8a",*/ "x86"/*, "x86_64"*/
         }
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -32,6 +32,9 @@ android {
             zipAlignEnabled true
         }
         debug {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled true
             signingConfig signingConfigs.config
         }
     }
@@ -63,6 +66,7 @@ dependencies {
     compile files('libs/ocr-sdk.jar')
     compile files('libs/poi-3.9-20121203.jar')
     compile files('libs/poi-scratchpad-3.9-20121203.jar')
+    compile files('libs/jxl.jar')
     implementation project(':ocr_ui')
     compile 'com.yalantis:ucrop:2.2.0'
     compile 'org.litepal.android:core:1.6.1'
