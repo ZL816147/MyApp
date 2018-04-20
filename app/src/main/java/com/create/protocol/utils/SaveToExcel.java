@@ -5,6 +5,8 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.create.protocol.DetailActivity;
+
 import java.io.File;
 
 import jxl.Workbook;
@@ -27,7 +29,6 @@ public class SaveToExcel {
         this.activity = activity;
         excelFile = new File(excelPath);
         createExcel(excelFile);
-
     }
 
     // 创建excel表.
@@ -94,7 +95,8 @@ public class SaveToExcel {
             wwb.write();
             wwb.close();
             Toast.makeText(activity, "保存成功", Toast.LENGTH_SHORT).show();
-
+            DetailActivity a = (DetailActivity) activity;
+            a.sharePDF(excelFile);
         } catch (Exception e) {
             e.printStackTrace();
         }

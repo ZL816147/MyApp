@@ -91,4 +91,7 @@ dependencies {
 //    compile 'com.umeng.sdk:share-qq:latest.integration'
 //    compile 'com.umeng.sdk:share-wechat:latest.integration'
 //    compile 'com.umeng.sdk:share-sina:latest.integration'
+
+    compile 'com.umeng.sdk:common:latest.integration'
+    compile 'com.umeng.sdk:analytics:latest.integration'
 }

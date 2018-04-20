@@ -58,19 +58,19 @@ public class DetailHolder extends BaseHolder<Info> {
         tvMoneyTotal.setText(data.getDescribe());
         tvBankNumber.setText(data.getBankCard());
         tvOpenBank.setText(data.getOpenBank());
-
-        if (data.getInvolvedPeople().length() > 10) {
-            Bitmap bitmap = stringtoBitmap(data.getInvolvedPeople());
-            SpannableString spannable = new SpannableString(1 + "");
-            Drawable drawable = new BitmapDrawable(bitmap);//加载应用程序中图片
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()); //设置宽'高
-            // 若该TextView 上既有文本又有图片设置图片与文本底部对齐
-            ImageSpan tv_span = new ImageSpan(drawable, ImageSpan.ALIGN_BOTTOM);
-            spannable.setSpan(tv_span, 0, spannable.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-            etInvolvedSign.setText(spannable);
-        } else {
-            etInvolvedSign.setText(data.getInvolvedPeople());
-        }
+//
+//        if (data.getInvolvedPeople().length() > 10) {
+//            Bitmap bitmap = stringtoBitmap(data.getInvolvedPeople());
+//            SpannableString spannable = new SpannableString(1 + "");
+//            Drawable drawable = new BitmapDrawable(bitmap);//加载应用程序中图片
+//            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()); //设置宽'高
+//            // 若该TextView 上既有文本又有图片设置图片与文本底部对齐
+//            ImageSpan tv_span = new ImageSpan(drawable, ImageSpan.ALIGN_BOTTOM);
+//            spannable.setSpan(tv_span, 0, spannable.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+//            etInvolvedSign.setText(spannable);
+//        } else {
+            etInvolvedSign.setText(data.getStatus());
+//        }
         etInvolvedSign.setFocusable(false);
     }
 

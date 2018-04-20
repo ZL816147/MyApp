@@ -4,7 +4,10 @@
     android:layout_height="50dp"
     android:background="@drawable/selector_listview_item"
     android:gravity="center"
-    android:padding="6dp">
+    android:paddingBottom="6dp"
+    android:paddingLeft="@dimen/padding"
+    android:paddingRight="@dimen/padding"
+    android:paddingTop="6dp">
 
     <TextView
         android:id="@+id/tv_project_code"
@@ -19,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
-        android:paddingRight="6dp"
         android:layout_centerVertical="true"
         android:src="@drawable/bid_btn_arrow" />
 

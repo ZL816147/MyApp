@@ -10,6 +10,7 @@ import com.baidu.ocr.sdk.OCR;
 import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
+import com.umeng.commonsdk.UMConfigure;
 
 import org.litepal.LitePal;
 
@@ -47,7 +48,7 @@ public class MyApplication extends Application {
         instance = this;
         context = getApplicationContext();
 
-//        UMConfigure.init(this, "5ab383cda40fa330f4000128", "umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
+        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "");
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            return;
 //        }

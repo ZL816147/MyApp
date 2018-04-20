@@ -48,8 +48,8 @@ public class DetailActivity extends BaseActivity {
 
     @BindView(R.id.iv_back)
     ImageView ivBack;
-    @BindView(R.id.btn_save)
-    ImageView btnSave;
+    @BindView(R.id.btn_share)
+    ImageView btnShare;
     @BindView(R.id.tv_id)
     TextView tvId;
     @BindView(R.id.tv_power_name)
@@ -100,9 +100,7 @@ public class DetailActivity extends BaseActivity {
         Date curDate = new Date(System.currentTimeMillis());
         date = formatter.format(curDate);
 //        String excelFileName = date + "_" + "政策处理明细单" + ".xls";
-        excelFileName = date + "_" + "zcclmxd" + ".xls";
-        saveToExcel = new SaveToExcel(this, imagePath + excelFileName);
-
+        excelFileName = date + "_detail.xls";
         int id = getIntent().getIntExtra("id", 0);
         String projectCode = getIntent().getStringExtra("projectCode");
         Info info = DataSupport.find(Info.class, id);
@@ -117,12 +115,12 @@ public class DetailActivity extends BaseActivity {
             tvBankNumber.setText(info.getBankCard());
             tvOpenBank.setText(info.getOpenBank());
 
-            if (info.getInvolvedPeople().length() > 10) {
-                SpannableString spannable = getSpannableString(info.getInvolvedPeople());
-                tvInvolvedSign.setText(spannable);
-            } else {
-                tvInvolvedSign.setText(info.getInvolvedPeople());
-            }
+//            if (info.getInvolvedPeople().length() > 10) {
+//                SpannableString spannable = getSpannableString(info.getInvolvedPeople());
+//                tvInvolvedSign.setText(spannable);
+//            } else {
+            tvInvolvedSign.setText(info.getStatus());
+//            }
             tvInvolvedSign.setFocusable(false);
             if (info.getResponsiblePeople().length() > 10) {
                 SpannableString spannable = getSpannableString(info.getResponsiblePeople());
@@ -163,17 +161,17 @@ public class DetailActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.iv_back, R.id.btn_save})
+    @OnClick({R.id.iv_back, R.id.btn_share})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
                 finish();
                 outTransitionAnimation();
                 break;
-            case R.id.btn_save:
+            case R.id.btn_share:
                 // 保存成图片
                 Bitmap bitmap = loadBitmapFromView(llView);
-                String fileName = date + "_" + "zcclmxd" + ".jpg";
+                String fileName = date + "_" + "detail.jpg";
                 File file = new File(imagePath, fileName);
                 try {
                     if (file.exists()) {
@@ -195,7 +193,7 @@ public class DetailActivity extends BaseActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                String pdfFile = imagePath + date + "_" + "zcclmxd" + ".pdf";
+                String pdfFile = imagePath + date +"_detail.pdf";
                 List imgList = new ArrayList<String>();
                 imgList.add(imagePath + fileName);
                 try {
@@ -208,6 +206,7 @@ public class DetailActivity extends BaseActivity {
                 }
 //                openAssignFolder(new File(pdfFile));
 
+                saveToExcel = new SaveToExcel(this, imagePath + excelFileName);
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
                         if (list.get(i) != null) {
@@ -227,16 +226,8 @@ public class DetailActivity extends BaseActivity {
                     }
                 }
 
-                File xlsFile = new File(imagePath, excelFileName);
-                try {
-                    if (xlsFile.exists()) {
-                        xlsFile.delete();
-                    }
-                    xlsFile.createNewFile();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                sharePDF(xlsFile);
+
+//                sharePDF(xlsFile);
                 Toast.makeText(this, "保存成功", Toast.LENGTH_LONG).show();
                 break;
             default:

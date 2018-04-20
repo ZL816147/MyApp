@@ -35,7 +35,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -95,6 +95,9 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="3bb60f4a9b3f5dec5ca0a8da333e80b5" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5ab383cda40fa330f4000128" />
     </application>
 
 </manifest>

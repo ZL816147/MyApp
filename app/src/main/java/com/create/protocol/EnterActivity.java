@@ -238,8 +238,6 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
     private static final String templatePath = Environment.getExternalStorageDirectory() + "/protocol/template.doc";
     // 创建生成的文件地址
     private static final String newPath = Environment.getExternalStorageDirectory() + "/protocol/";
-    // 图片或者pdf或者声音存储
-    private static final String imagePath = Environment.getExternalStorageDirectory() + "/protocol/";
     // 系统图库
     private static String cameraPath = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_DCIM + File.separator + "Camera" + File.separator;
     //    private static final String imagePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath();
@@ -297,7 +295,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         } else {
             pathName = time + ".amr";
         }
-        audioFile = new File(imagePath, pathName);
+        audioFile = new File(myDir, pathName);
         try {
             if (audioFile.exists()) {
                 audioFile.delete();
@@ -987,7 +985,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
 
     @OnClick({R.id.iv_power_name, R.id.iv_destroy_stuff, R.id.iv_unit, R.id.tv_play, R.id.iv_delete_voice, R.id.btn_save, R.id.iv_identity_card, R.id.iv_bank_card, R.id.iv_scene1, R.id.iv_scene2, R.id.iv_scene3, R.id.iv_scene4, R.id.iv_back, R.id.tv_total, R.id.tv_add})
     public void onClick(View v) {
-        File file = new File(imagePath, pathName);
+        File file = new File(myDir, pathName);
         switch (v.getId()) {
             case R.id.iv_power_name:
                 etPowerName.setText("");

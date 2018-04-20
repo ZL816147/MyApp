@@ -118,7 +118,7 @@ public class ProtocolActivity extends BaseActivity implements OnLoadCompleteList
                 String str = formatter.format(curDate);
                 // 保存成图片
                 Bitmap bitmap = loadBitmapFromView(imView);
-                String fileName = str + "_" + "政策处理协议" + ".jpg";
+                String fileName = str + "_protocol.jpg";
                 File file = new File(imagePath, fileName);
                 try {
                     if (file.exists()) {
@@ -140,7 +140,7 @@ public class ProtocolActivity extends BaseActivity implements OnLoadCompleteList
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                String pdfFile = imagePath + str + "_" + "政策处理协议" + ".pdf";
+                String pdfFile = imagePath + str + "_protocol.pdf";
                 List imgList = new ArrayList<String>();
                 imgList.add(imagePath + fileName);
                 try {

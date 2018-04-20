@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.umeng.analytics.MobclickAgent;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -45,11 +47,13 @@ import static com.create.protocol.utils.PdfBackground.BORDER_WIDTH;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private Uri imageUri;
+    protected File myDir;
 
     protected abstract int getLayout();
 
     protected abstract void init(Bundle savedInstanceState);
-
+    // 图片存储
+    private static final String imagePath = Environment.getExternalStorageDirectory().toString();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -57,6 +61,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         setContentView(getLayout());
         ButterKnife.bind(this);
+        myDir = new File(imagePath + "/protocol/");
+        myDir.mkdirs();
+
         init(savedInstanceState);
         if (MyApplication.getInstance() != null) {
             MyApplication.getInstance().addActivity(this);
@@ -198,7 +205,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         intent.setAction(Intent.ACTION_SEND);
         intent.addCategory("android.intent.category.DEFAULT");
         Uri pdfUri;
-        pdfUri = Uri.fromFile(file);
+        if (Build.VERSION.SDK_INT >= 24) {
+            pdfUri = FileProvider.getUriForFile(this, "com.create.protocol", file);
+        } else {
+            pdfUri = Uri.fromFile(file);
+        }
         intent.putExtra(Intent.EXTRA_STREAM, pdfUri);
         intent.setType("application/pdf");
 
@@ -207,5 +218,17 @@ public abstract class BaseActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }
