@@ -1,7 +1,15 @@
 [
     {
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
         "merged": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
         "source": "C:\\Users\\jsntnjzb\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\a5074d4f6e523e9b90531d3aea48bba8\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
         "merged": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",

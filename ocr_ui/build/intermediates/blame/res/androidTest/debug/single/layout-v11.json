@@ -8,16 +8,40 @@
         "source": "C:\\Users\\jsntnjzb\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\a5074d4f6e523e9b90531d3aea48bba8\\res\\layout-v11\\notification_template_big_media_custom.xml"
     },
     {
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\notification_template_big_media.xml",
+        "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\layout-v11\\notification_template_big_media.xml"
+    },
+    {
         "merged": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\notification_media_cancel_action.xml",
         "source": "C:\\Users\\jsntnjzb\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\a5074d4f6e523e9b90531d3aea48bba8\\res\\layout-v11\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
     },
     {
         "merged": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\notification_template_big_media.xml",
         "source": "C:\\Users\\jsntnjzb\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\a5074d4f6e523e9b90531d3aea48bba8\\res\\layout-v11\\notification_template_big_media.xml"
     },
     {
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\layout-v11\\notification_template_big_media_narrow.xml"
+    },
+    {
         "merged": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\notification_template_big_media_narrow.xml",
         "source": "C:\\Users\\jsntnjzb\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\a5074d4f6e523e9b90531d3aea48bba8\\res\\layout-v11\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\layout-v11\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\layout-v11\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\notification_media_action.xml",
+        "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\layout-v11\\notification_media_action.xml"
     },
     {
         "merged": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11\\notification_template_big_media_narrow_custom.xml",

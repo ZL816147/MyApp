@@ -14,12 +14,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.create.protocol.adapter.DetailAdapter;
 import com.create.protocol.base.BaseActivity;
 import com.create.protocol.model.Info;
-import com.create.protocol.utils.LogUtils;
 import com.create.protocol.utils.SaveToExcel;
 import com.create.protocol.widget.CustomListView;
 import com.itextpdf.text.DocumentException;
@@ -32,7 +30,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -205,7 +202,6 @@ public class DetailActivity extends BaseActivity {
                     e.printStackTrace();
                 }
 //                openAssignFolder(new File(pdfFile));
-
                 saveToExcel = new SaveToExcel(this, imagePath + excelFileName);
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
@@ -225,10 +221,6 @@ public class DetailActivity extends BaseActivity {
                         }
                     }
                 }
-
-
-//                sharePDF(xlsFile);
-                Toast.makeText(this, "保存成功", Toast.LENGTH_LONG).show();
                 break;
             default:
                 break;

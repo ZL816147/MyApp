@@ -1,8 +1,6 @@
 package com.create.protocol.utils;
 
 import android.app.Activity;
-import android.os.Environment;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.create.protocol.DetailActivity;
@@ -28,6 +26,9 @@ public class SaveToExcel {
         this.excelPath = excelPath;
         this.activity = activity;
         excelFile = new File(excelPath);
+        if (excelFile.exists()) {
+            excelFile.delete();
+        }
         createExcel(excelFile);
     }
 

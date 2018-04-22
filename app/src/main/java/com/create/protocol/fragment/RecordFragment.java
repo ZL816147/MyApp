@@ -6,10 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.create.protocol.DetailActivity;
 import com.create.protocol.ItemActivity;
 import com.create.protocol.MainActivity;
 import com.create.protocol.R;
@@ -42,6 +40,14 @@ public class RecordFragment extends BaseFragment implements AdapterView.OnItemCl
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_record;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            init();
+        }
     }
 
     @Override
