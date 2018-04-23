@@ -11,11 +11,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.media.TimedText;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
@@ -304,8 +307,6 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         } catch (Exception e) {
             e.printStackTrace();
         }
-        recoderUtils = new AudioRecoderUtils(audioFile);
-        recoderUtils.setOnAudioStatusUpdateListener(EnterActivity.this);
         discern();
     }
 
@@ -402,9 +403,10 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         tvRecord.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                        recoderUtils = new AudioRecoderUtils(audioFile);
+                        recoderUtils.setOnAudioStatusUpdateListener(EnterActivity.this);
                         recoderUtils.startRecord();
                         downT = System.currentTimeMillis();
                         recoderDialog.showAtLocation(tvRecord, Gravity.CENTER, 0, 0);
@@ -1035,10 +1037,31 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
                 } else {
                     uri = Uri.fromFile(audioFile);
                 }
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setDataAndType(uri, "*/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivity(intent);
+//                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//                intent.setDataAndType(uri, "audio/*");
+//                intent.addCategory(Intent.CATEGORY_OPENABLE);
+//                startActivity(intent);
+                MediaPlayer mediaPlayer;
+                mediaPlayer = MediaPlayer.create(EnterActivity.this, uri);
+                mediaPlayer.start();
+                recoderDialog.showAtLocation(tvRecord, Gravity.CENTER, 0, 0);
+//                final long[] duration = {(mediaPlayer.getDuration() + downT)};
+//                LogUtils.e(duration[0] + "++++++++++++++++++++++++++++++");
+//                final Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        recoderDialog.setTime(duration[0]);
+//                        duration[0] = duration[0] - 1000;
+//                        handler.postDelayed(this, 1000);
+//                    }
+//                }, 1000);
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        recoderDialog.dismiss();
+                    }
+                });
                 break;
             case R.id.iv_delete_voice:
                 if (audioFile.exists()) {

@@ -18,6 +18,7 @@ public class AudioRecoderDialog extends BasePopupWindow {
 
     private ImageView imageView;
     private TextView textView;
+    private long time;
 
     public AudioRecoderDialog(Context context) {
         super(context);
@@ -34,5 +35,13 @@ public class AudioRecoderDialog extends BasePopupWindow {
 
     public void setTime(long time) {
         textView.setText(ProgressTextUtils.getProgressText(time));
+    }
+
+    public void setTimeOne(long time) {
+        textView.setText(time/1000 + "");
+    }
+
+    public long getTime() {
+        return time;
     }
 }

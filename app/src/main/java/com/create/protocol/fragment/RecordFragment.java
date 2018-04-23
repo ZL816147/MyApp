@@ -34,8 +34,8 @@ public class RecordFragment extends BaseFragment implements AdapterView.OnItemCl
     Unbinder unbinder;
     @BindView(R.id.listview)
     ListView listview;
-    private List<Info> infoList;
-    private List<String> projectCodes;
+    private List<Info> infoList = new ArrayList<>();
+    private List<String> projectCodes = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -43,15 +43,14 @@ public class RecordFragment extends BaseFragment implements AdapterView.OnItemCl
     }
 
     @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser) {
-            init();
-        }
+    public void onResume() {
+        super.onResume();
+        init();
     }
 
     @Override
     protected void init() {
+        infoList.clear();
         infoList = DataSupport.findAll(Info.class);
         Collections.reverse(infoList);
         projectCodes = new ArrayList<>();

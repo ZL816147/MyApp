@@ -993,7 +993,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="4"
                                     android:gravity="center_vertical"
-                                    android:hint="查看"
+                                    android:hint="播放"
                                     android:paddingLeft="5dp"
                                     android:textColor="@color/black"
                                     android:textColorHint="@color/black"

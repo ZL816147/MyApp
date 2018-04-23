@@ -8,12 +8,12 @@
         "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\layout\\abc_screen_content_include.xml"
-    },
-    {
         "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_item_layout.xml",
         "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\layout\\abc_screen_content_include.xml"
     },
     {
         "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_layout.xml",

@@ -8,12 +8,12 @@
         "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
-        "merged": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\notification_bg.xml",
-        "source": "C:\\Users\\jsntnjzb\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\a5074d4f6e523e9b90531d3aea48bba8\\res\\drawable\\notification_bg.xml"
-    },
-    {
         "merged": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\notification_tile_bg.xml",
         "source": "C:\\Users\\jsntnjzb\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\a5074d4f6e523e9b90531d3aea48bba8\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\jsntnjzb\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\a5074d4f6e523e9b90531d3aea48bba8\\res\\drawable\\notification_bg.xml"
     },
     {
         "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_tab_indicator_material.xml",

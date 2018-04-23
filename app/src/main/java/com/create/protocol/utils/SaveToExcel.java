@@ -1,6 +1,10 @@
 package com.create.protocol.utils;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.support.v4.content.FileProvider;
 import android.widget.Toast;
 
 import com.create.protocol.DetailActivity;
@@ -96,8 +100,25 @@ public class SaveToExcel {
             wwb.write();
             wwb.close();
             Toast.makeText(activity, "保存成功", Toast.LENGTH_SHORT).show();
-            DetailActivity a = (DetailActivity) activity;
-            a.sharePDF(excelFile);
+
+            DetailActivity detailActivity = (DetailActivity) activity;
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.addCategory("android.intent.category.DEFAULT");
+            Uri pdfUri;
+            if (Build.VERSION.SDK_INT >= 24) {
+                pdfUri = FileProvider.getUriForFile(activity, "com.create.protocol", excelFile);
+            } else {
+                pdfUri = Uri.fromFile(excelFile);
+            }
+            intent.putExtra(Intent.EXTRA_STREAM, pdfUri);
+            intent.setType("application/vnd.ms-excel");
+
+            try {
+                detailActivity.startActivity(Intent.createChooser(intent, excelFile.getName()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

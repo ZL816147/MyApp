@@ -1,19 +1,19 @@
 [
     {
-        "merged": "D:\\majia\\amusement\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\online_facedemo.xml",
-        "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\layout\\online_facedemo.xml"
-    },
-    {
         "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\list_items.xml",
         "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\layout\\list_items.xml"
     },
     {
-        "merged": "D:\\majia\\amusement\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\item_identify_result.xml",
-        "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\layout\\item_identify_result.xml"
+        "merged": "D:\\majia\\amusement\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\online_facedemo.xml",
+        "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\layout\\online_facedemo.xml"
     },
     {
         "merged": "D:\\majia\\amusement\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\activity_result_identify.xml",
         "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\layout\\activity_result_identify.xml"
+    },
+    {
+        "merged": "D:\\majia\\amusement\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\item_identify_result.xml",
+        "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\layout\\item_identify_result.xml"
     },
     {
         "merged": "D:\\majia\\amusement\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout\\isrdemo.xml",
