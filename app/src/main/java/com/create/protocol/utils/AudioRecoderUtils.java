@@ -85,9 +85,14 @@ public class AudioRecoderUtils {
         mMediaRecorder.setOnErrorListener(null);
         mMediaRecorder.setOnInfoListener(null);
         mMediaRecorder.setPreviewDisplay(null);
-        mMediaRecorder.stop();
-        mMediaRecorder.reset();
-        mMediaRecorder.release();
+        try {
+            mMediaRecorder.stop();
+            mMediaRecorder.reset();
+            mMediaRecorder.release();
+        } catch (IllegalStateException e) {
+        } catch (RuntimeException e) {
+        } catch (Exception e) {
+        }
         mMediaRecorder = null;
         LogUtils.i("Time" + (endTime - startTime));
         audioStatusUpdateListener.onStop(filePath);

@@ -1043,7 +1043,15 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
 //                startActivity(intent);
                 MediaPlayer mediaPlayer;
                 mediaPlayer = MediaPlayer.create(EnterActivity.this, uri);
-                mediaPlayer.start();
+                if (mediaPlayer != null) {
+                    mediaPlayer.start();
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            recoderDialog.dismiss();
+                        }
+                    });
+                }
                 recoderDialog.showAtLocation(tvRecord, Gravity.CENTER, 0, 0);
 //                final long[] duration = {(mediaPlayer.getDuration() + downT)};
 //                LogUtils.e(duration[0] + "++++++++++++++++++++++++++++++");
@@ -1052,16 +1060,11 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
 //                    @Override
 //                    public void run() {
 //                        recoderDialog.setTime(duration[0]);
+
 //                        duration[0] = duration[0] - 1000;
 //                        handler.postDelayed(this, 1000);
 //                    }
 //                }, 1000);
-                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        recoderDialog.dismiss();
-                    }
-                });
                 break;
             case R.id.iv_delete_voice:
                 if (audioFile.exists()) {
