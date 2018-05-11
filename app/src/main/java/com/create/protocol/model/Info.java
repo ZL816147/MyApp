@@ -1,5 +1,6 @@
 package com.create.protocol.model;
 
+import org.litepal.annotation.Column;
 import org.litepal.crud.DataSupport;
 
 /**
@@ -8,8 +9,9 @@ import org.litepal.crud.DataSupport;
 
 public class Info extends DataSupport {
 
-    private boolean isShow; // 是否显示CheckBox
-    private boolean isChecked; // 是否选中CheckBox
+    private boolean isShow = false; // 是否显示CheckBox
+    private boolean isChecked = false; // 是否选中CheckBox
+    @Column(unique = true, defaultValue = "unknown")
     private String protocolBitmap;
 
     public String getProtocolBitmap() {
@@ -32,7 +34,7 @@ public class Info extends DataSupport {
         isChecked = checked;
     }
 
-    private int id;
+    public int id = 0;
 
     public int getId() {
         return id;
@@ -42,30 +44,30 @@ public class Info extends DataSupport {
         this.id = id;
     }
 
-    private String site;    //地点
-    private String date;    //制单日
-    private String status;  //赔付情况
-    private String power;   //供电所
-    private String construction; //施工方
-    private String projectCode; //项目文号
-    private String projectName; //项目名称
-    private String describe; //描述
+    private String site = "";    //地点
+    private String date = "";    //制单日
+    private String status = "";  //赔付情况
+    private String power = "";   //供电所
+    private String construction = ""; //施工方
+    private String projectCode = ""; //项目文号
+    private String projectName = ""; //项目名称
+    private String describe = ""; //描述
 
-    private String identityCardImage; //身份证照片
-    private String bankCardImage; //银行卡
-    private String sceneImage1; //现场照片1
-    private String sceneImage2; //现场照片2
-    private String sceneImage3; //现场照片3
-    private String sceneImage4; //现场照片4
+    private String identityCardImage = ""; //身份证照片
+    private String bankCardImage = ""; //银行卡
+    private String sceneImage1 = ""; //现场照片1
+    private String sceneImage2 = ""; //现场照片2
+    private String sceneImage3 = ""; //现场照片3
+    private String sceneImage4 = ""; //现场照片4
 
-    private String involvedPeople; //涉赔人签字
-    private String responsiblePeople; //经办人签字
+    private String involvedPeople = ""; //涉赔人签字
+    private String responsiblePeople = ""; //经办人签字
 
-    private String openBank; //开户行
-    private String bankCard; //银行卡号
-    private String contactNumber; //联系电话
-    private String marketingNo; //营销户号
-    private String powerPeople; //供电所负责人
+    private String openBank = ""; //开户行
+    private String bankCard = ""; //银行卡号
+    private String contactNumber = ""; //联系电话
+    private String marketingNo = ""; //营销户号
+    private String powerPeople = ""; //供电所负责人
 
     public String getSite() {
         return site;

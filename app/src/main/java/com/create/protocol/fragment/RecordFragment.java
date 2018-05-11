@@ -1,6 +1,8 @@
 package com.create.protocol.fragment;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import com.create.protocol.base.BaseFragment;
 import com.create.protocol.model.Info;
 import com.create.protocol.utils.LogUtils;
 
+import org.litepal.LitePal;
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;

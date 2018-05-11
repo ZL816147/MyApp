@@ -591,7 +591,6 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
     }
 
     private void saveData() {
-        SQLiteDatabase db = LitePal.getDatabase();
         site = tvCreateAddress.getText().toString().substring(3);
         date = tvCreateDate.getText().toString().substring(4);
         status = tvCompensateState.getText().toString();
