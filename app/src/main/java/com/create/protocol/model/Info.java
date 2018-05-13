@@ -12,9 +12,9 @@ public class Info extends DataSupport {
     private boolean isShow = false; // 是否显示CheckBox
     private boolean isChecked = false; // 是否选中CheckBox
     @Column(unique = true, defaultValue = "unknown")
-    private String protocolBitmap;
+    private byte[] protocolBitmap;
 
-    public String getProtocolBitmap() {
+    public byte[] getProtocolBitmap() {
         return protocolBitmap;
     }
 
@@ -40,9 +40,9 @@ public class Info extends DataSupport {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     private String site = "";    //地点
     private String date = "";    //制单日
@@ -53,12 +53,12 @@ public class Info extends DataSupport {
     private String projectName = ""; //项目名称
     private String describe = ""; //描述
 
-    private String identityCardImage = ""; //身份证照片
-    private String bankCardImage = ""; //银行卡
-    private String sceneImage1 = ""; //现场照片1
-    private String sceneImage2 = ""; //现场照片2
-    private String sceneImage3 = ""; //现场照片3
-    private String sceneImage4 = ""; //现场照片4
+//    private String identityCardImage = ""; //身份证照片
+//    private String bankCardImage = ""; //银行卡
+//    private String sceneImage1 = ""; //现场照片1
+//    private String sceneImage2 = ""; //现场照片2
+//    private String sceneImage3 = ""; //现场照片3
+//    private String sceneImage4 = ""; //现场照片4
 
     private String involvedPeople = ""; //涉赔人签字
     private String responsiblePeople = ""; //经办人签字
@@ -133,53 +133,6 @@ public class Info extends DataSupport {
         this.describe = describe;
     }
 
-    public String getIdentityCardImage() {
-        return identityCardImage;
-    }
-
-    public void setIdentityCardImage(String identityCardImage) {
-        this.identityCardImage = identityCardImage;
-    }
-
-    public String getBankCardImage() {
-        return bankCardImage;
-    }
-
-    public void setBankCardImage(String bankCardImage) {
-        this.bankCardImage = bankCardImage;
-    }
-
-    public String getSceneImage1() {
-        return sceneImage1;
-    }
-
-    public void setSceneImage1(String sceneImage1) {
-        this.sceneImage1 = sceneImage1;
-    }
-
-    public String getSceneImage2() {
-        return sceneImage2;
-    }
-
-    public void setSceneImage2(String sceneImage2) {
-        this.sceneImage2 = sceneImage2;
-    }
-
-    public String getSceneImage3() {
-        return sceneImage3;
-    }
-
-    public void setSceneImage3(String sceneImage3) {
-        this.sceneImage3 = sceneImage3;
-    }
-
-    public String getSceneImage4() {
-        return sceneImage4;
-    }
-
-    public void setSceneImage4(String sceneImage4) {
-        this.sceneImage4 = sceneImage4;
-    }
 
     public String getInvolvedPeople() {
         return involvedPeople;
@@ -237,7 +190,7 @@ public class Info extends DataSupport {
         this.powerPeople = powerPeople;
     }
 
-    public void setProtocolBitmap(String protocolBitmap) {
+    public void setProtocolBitmap(byte[] protocolBitmap) {
         this.protocolBitmap = protocolBitmap;
     }
 }

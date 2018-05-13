@@ -1,29 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\majia\\amusement\\MyApp\\speechDemo\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
             "map": [
                 {
-                    "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "2,13",
-                        "startColumns": "6,4",
-                        "startOffsets": "59,600",
-                        "endLines": "11,15",
-                        "endColumns": "9,12",
-                        "endOffsets": "592,689"
-                    },
-                    "to": {
-                        "startLines": "161,171",
-                        "startColumns": "4,4",
-                        "startOffsets": "6410,6939",
-                        "endLines": "170,173",
-                        "endColumns": "9,12",
-                        "endOffsets": "6934,7026"
-                    }
-                },
-                {
-                    "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "134,139,157,80,86,32,36,126,130,110,115,149,153,144,92,100,40,60,4,2,5,25,19,22,20,23,11,13,12,125,123,124,18,122,121,8,6,7,9,14,16,15,17,27,28,108",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -42,13 +23,13 @@
                     }
                 },
                 {
-                    "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\values\\dimen.xml",
+                    "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\values\\dimen.xml",
                     "from": {
                         "startLines": "5,9,3,4,6",
                         "startColumns": "4,4,4,4,4",
-                        "startOffsets": "137,241,60,99,177",
+                        "startOffsets": "142,250,63,103,183",
                         "endColumns": "39,41,38,37,39",
-                        "endOffsets": "172,278,94,132,212"
+                        "endOffsets": "177,287,97,136,218"
                     },
                     "to": {
                         "startLines": "126,127,128,129,130",
@@ -59,13 +40,32 @@
                     }
                 },
                 {
-                    "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\values\\colors.xml",
+                    "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "2,13",
+                        "startColumns": "6,4",
+                        "startOffsets": "59,600",
+                        "endLines": "11,15",
+                        "endColumns": "9,12",
+                        "endOffsets": "592,689"
+                    },
+                    "to": {
+                        "startLines": "161,171",
+                        "startColumns": "4,4",
+                        "startOffsets": "6410,6939",
+                        "endLines": "170,173",
+                        "endColumns": "9,12",
+                        "endOffsets": "6934,7026"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\values\\colors.xml",
                     "from": {
                         "startLines": "14,12,13,9,4,7",
                         "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "384,283,338,214,75,157",
+                        "startOffsets": "398,295,351,223,79,164",
                         "endColumns": "47,54,45,39,56,55",
-                        "endOffsets": "427,333,379,249,127,208"
+                        "endOffsets": "441,345,392,258,131,215"
                     },
                     "to": {
                         "startLines": "122,123,124,125,131,132",
@@ -78,29 +78,10 @@
             ]
         },
         {
-            "outputFile": "D:\\majia\\amusement\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
+            "outputFile": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "2,13",
-                        "startColumns": "6,4",
-                        "startOffsets": "59,600",
-                        "endLines": "11,15",
-                        "endColumns": "9,12",
-                        "endOffsets": "592,689"
-                    },
-                    "to": {
-                        "startLines": "161,171",
-                        "startColumns": "4,4",
-                        "startOffsets": "6410,6939",
-                        "endLines": "170,173",
-                        "endColumns": "9,12",
-                        "endOffsets": "6934,7026"
-                    }
-                },
-                {
-                    "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "134,139,157,80,86,32,36,126,130,110,115,149,153,144,92,100,40,60,4,2,5,25,19,22,20,23,11,13,12,125,123,124,18,122,121,8,6,7,9,14,16,15,17,27,28,108",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -119,13 +100,13 @@
                     }
                 },
                 {
-                    "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\values\\dimen.xml",
+                    "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\values\\dimen.xml",
                     "from": {
                         "startLines": "5,9,3,4,6",
                         "startColumns": "4,4,4,4,4",
-                        "startOffsets": "137,241,60,99,177",
+                        "startOffsets": "142,250,63,103,183",
                         "endColumns": "39,41,38,37,39",
-                        "endOffsets": "172,278,94,132,212"
+                        "endOffsets": "177,287,97,136,218"
                     },
                     "to": {
                         "startLines": "126,127,128,129,130",
@@ -136,13 +117,32 @@
                     }
                 },
                 {
-                    "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\values\\colors.xml",
+                    "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "2,13",
+                        "startColumns": "6,4",
+                        "startOffsets": "59,600",
+                        "endLines": "11,15",
+                        "endColumns": "9,12",
+                        "endOffsets": "592,689"
+                    },
+                    "to": {
+                        "startLines": "161,171",
+                        "startColumns": "4,4",
+                        "startOffsets": "6410,6939",
+                        "endLines": "170,173",
+                        "endColumns": "9,12",
+                        "endOffsets": "6934,7026"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\values\\colors.xml",
                     "from": {
                         "startLines": "14,12,13,9,4,7",
                         "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "384,283,338,214,75,157",
+                        "startOffsets": "398,295,351,223,79,164",
                         "endColumns": "47,54,45,39,56,55",
-                        "endOffsets": "427,333,379,249,127,208"
+                        "endOffsets": "441,345,392,258,131,215"
                     },
                     "to": {
                         "startLines": "122,123,124,125,131,132",

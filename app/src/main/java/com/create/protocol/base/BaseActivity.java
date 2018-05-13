@@ -35,7 +35,6 @@ import java.io.IOException;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import retrofit2.http.Url;
 
 import static com.create.protocol.utils.PdfBackground.BORDER_WIDTH;
 
@@ -52,8 +51,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract int getLayout();
 
     protected abstract void init(Bundle savedInstanceState);
+
     // 图片存储
     private static final String imagePath = Environment.getExternalStorageDirectory().toString();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -110,6 +111,17 @@ public abstract class BaseActivity extends AppCompatActivity {
         return bitmap;
     }
 
+    public Bitmap decode(byte[] bitmapArray) {
+        //将字符串转换成Bitmap类型
+        Bitmap bitmap = null;
+        try {
+            bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+
     public String encodeBitmap(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
@@ -117,6 +129,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         String s = new String(Base64.encodeToString(byteArray, Base64.DEFAULT));
 //        bitmap.recycle();
         return s;
+    }
+
+    public byte[] encode(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        return byteArray;
     }
 
     /**

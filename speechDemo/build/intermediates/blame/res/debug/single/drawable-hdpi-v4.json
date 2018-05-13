@@ -1,10 +1,10 @@
 [
     {
-        "merged": "D:\\majia\\amusement\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon.png",
-        "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\drawable-hdpi\\icon.png"
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\no_photo.png",
+        "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\drawable-hdpi\\no_photo.png"
     },
     {
-        "merged": "D:\\majia\\amusement\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\no_photo.png",
-        "source": "D:\\majia\\amusement\\MyApp\\speechDemo\\src\\main\\res\\drawable-hdpi\\no_photo.png"
+        "merged": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon.png",
+        "source": "C:\\Users\\ZL\\Desktop\\MyApp\\speechDemo\\src\\main\\res\\drawable-hdpi\\icon.png"
     }
 ]

@@ -3,7 +3,6 @@ package com.create.protocol.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.text.Html;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.create.protocol.DetailActivity;
 import com.create.protocol.ProtocolActivity;
 import com.create.protocol.R;
 import com.create.protocol.model.Info;
@@ -102,7 +100,7 @@ public class MyAdapter extends BaseAdapter {
         holder.tvProtocol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (info.getProtocolBitmap() != null && !TextUtils.isEmpty(info.getProtocolBitmap())) {
+                if (info.getProtocolBitmap() != null ) {
                     Intent intent = new Intent(context, ProtocolActivity.class);
                     intent.putExtra("id", info.getId());
                     context.startActivity(intent);

@@ -6,19 +6,16 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.media.TimedText;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
@@ -83,7 +80,6 @@ import com.yalantis.ucrop.UCropActivity;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.litepal.LitePal;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -658,7 +654,7 @@ public class EnterActivity extends BaseActivity implements View.OnLongClickListe
         info.setContactNumber(contactNumber);
         info.setMarketingNo(marketingNo);
         info.setPowerPeople(powerPeople);
-        info.setProtocolBitmap(encodeBitmap(protocolBitmap));
+        info.setProtocolBitmap(encode(protocolBitmap));
         if (info.save()) {
             Toast.makeText(this, "存储成功", Toast.LENGTH_SHORT).show();
         } else {

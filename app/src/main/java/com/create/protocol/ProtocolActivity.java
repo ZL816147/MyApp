@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Environment;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -60,8 +59,8 @@ public class ProtocolActivity extends BaseActivity implements OnLoadCompleteList
         int id = getIntent().getIntExtra("id", 0);
         Info info = DataSupport.find(Info.class, id);
         if (info != null) {
-            if (info != null && info.getProtocolBitmap() != null && !TextUtils.isEmpty(info.getProtocolBitmap())) {
-                imView.setImageBitmap(decodeBitmap(info.getProtocolBitmap()));
+            if (info != null && info.getProtocolBitmap() != null) {
+                imView.setImageBitmap(decode(info.getProtocolBitmap()));
             }
         }
     }

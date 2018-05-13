@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v14\\values-v14.xml",
+            "outputFile": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-v14\\values-v14.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jsntnjzb\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\a5074d4f6e523e9b90531d3aea48bba8\\res\\values-v14\\values-v14.xml",
+                    "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\values-v14\\values-v14.xml",
                     "from": {
                         "startLines": "2,7,8,9,15,21,22,23,24,25,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -17,10 +17,10 @@
             ]
         },
         {
-            "outputFile": "D:\\majia\\amusement\\MyApp\\ocr_ui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-v14\\values-v14.xml",
+            "outputFile": "C:\\Users\\ZL\\Desktop\\MyApp\\ocr_ui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v14\\values-v14.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jsntnjzb\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\a5074d4f6e523e9b90531d3aea48bba8\\res\\values-v14\\values-v14.xml",
+                    "source": "C:\\Users\\ZL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.1.aar\\ec1bd22e856ba580cfb0870abb936601\\res\\values-v14\\values-v14.xml",
                     "from": {
                         "startLines": "2,7,8,9,15,21,22,23,24,25,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
